@@ -118,7 +118,126 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"script.js":[function(require,module,exports) {
-console.log('testing');
+// header --Section
+// header variables
+var headerLogoSrc = '/Images/Whistler Bungee.png';
+var headerLogoAlt = 'Whistler Adventures Logo';
+var headerBusinessName = 'Whistler Adventures';
+var headerMobileBackgroundSrc = '/Images/whistler village at night.jpg';
+var headerMobileBackgroundAlt = 'Mountain with a lake and forest';
+var headerNavItems = [{
+  item: 'Home',
+  link: '#'
+}, {
+  item: 'Adventures',
+  link: '/#adventures'
+}, {
+  item: 'About Us',
+  link: '/#aboutUs'
+}, {
+  item: 'Contact Us',
+  link: '/#contactUs'
+}]; // Right side section Output onto DOM for header items
+
+var body = document.querySelector('body');
+var headerItemContainer = document.createElement('div');
+headerItemContainer.classList.add('headerItemContainer');
+body.appendChild(headerItemContainer);
+headerNavItems.forEach(function (item) {
+  var headerItemDiv = document.createElement('div');
+  headerItemDiv.classList.add('headerItemDiv');
+  var headerItemButtonLinkEl = document.createElement('a');
+  headerItemButtonLinkEl.classList.add('headerItemButtonLinkEl');
+  var headerItemButton = document.createElement('button');
+  headerItemButton.classList.add('headerItemButton');
+  headerItemButtonLinkEl.appendChild(headerItemButton);
+  headerItemDiv.appendChild(headerItemButtonLinkEl);
+  headerItemButtonLinkEl.href = item.link;
+  headerItemContainer.appendChild(headerItemDiv);
+  headerItemButton.appendChild(document.createTextNode(item.item));
+  headerItemButton.href = item.link;
+}); // Hero --Section
+// variables for hero section
+
+var heroSectionText = [{
+  preText: 'Explore what',
+  mainText: 'Whistler BC',
+  postText: 'has to offer!',
+  CTAtext: 'Book Now',
+  CTAlink: '#'
+}];
+var heroSectonBackground = [{
+  url: '/Images/snowmobile tour.jpg',
+  altText: 'Group of people snowmobiling in Whistler'
+}]; // Hero section output to DOM
+
+var heroSectionDiv = document.querySelector('.heroSection'); // text
+
+var heroSectionTextDiv = document.createElement('div');
+heroSectionTextDiv.classList.add('heroSectionTextDiv');
+heroSectionDiv.appendChild(heroSectionTextDiv);
+var heroSectionPreTextEl = document.createElement('p');
+heroSectionPreTextEl.classList.add('heroSectionPreTextEl');
+heroSectionPreTextEl.appendChild(document.createTextNode(heroSectionText[0].preText));
+heroSectionTextDiv.appendChild(heroSectionPreTextEl);
+var heroSectionMainTextEl = document.createElement('h1');
+heroSectionMainTextEl.classList.add('heroSectionMainTextEl');
+heroSectionMainTextEl.appendChild(document.createTextNode(heroSectionText[0].mainText));
+heroSectionTextDiv.appendChild(heroSectionMainTextEl);
+var heroSectionPostText = document.createElement('p');
+heroSectionPostText.classList.add('heroSectionPostText');
+heroSectionPostText.appendChild(document.createTextNode(heroSectionText[0].postText));
+heroSectionTextDiv.appendChild(heroSectionPostText);
+var heroSectionCTAlink = document.createElement('a');
+heroSectionCTAlink.classList.add('heroSectionCTAlink');
+heroSectionCTAlink.href = heroSectionText[0].CTAlink;
+var heroSectionCTABtnEl = document.createElement('button');
+heroSectionCTABtnEl.classList.add('heroSectionCTABtnEl');
+heroSectionCTABtnEl.appendChild(document.createTextNode(heroSectionText[0].CTAtext));
+heroSectionCTAlink.appendChild(heroSectionCTABtnEl);
+heroSectionTextDiv.appendChild(heroSectionCTAlink); // background 
+// Instead of adding a div img as the second layer,
+// just add the background as a background image URL
+// and set the background to cover in JS  
+// Images with text --Section
+// variables
+
+var imagesWithTextVariables = [{
+  imageURL: '/Images/skiing in powder.jpg',
+  imageAltText: 'Person skiing in deep powder',
+  heading: 'Skiing & Snowboarding',
+  subText: 'Get guided by our experienced riders to find the best powder on the both Whistler and Blackcomb!',
+  CTAtext: 'Book Now!',
+  CTAlink: '/#'
+}, {
+  imageURL: '/Images/hiking in whistler.avif',
+  imageAltText: 'People hiking in Whistler',
+  heading: 'Hiking',
+  subText: 'Enjoy the best views Whistler can offer!',
+  CTAtext: 'Book Now!',
+  CTAlink: '/#'
+}, {
+  imageURL: '/Images/hiking on top of a mountain.avif',
+  imageAltText: 'Person mountain biking down a trail in Whistler',
+  heading: 'Mountain Biking',
+  subText: 'Find the best trails for your skill level in the Whistler Bike Park as well as the surrounding trails!',
+  CTAtext: 'Book Now!',
+  CTAlink: '/#'
+}, {
+  imageURL: '/Images/river within a forest from the top view.jpg',
+  imageAltText: 'Top view of a river flowing through a forest',
+  heading: 'White Water Rafting',
+  subText: 'Experience the excitement of river rafting!',
+  CTAtext: 'Book Now!',
+  CTAlink: '/#'
+}]; // Images with text DOM output
+
+var imageWithTextSectionContainer = document.querySelector('.imagesAndTextSection');
+imagesWithTextVariables.forEach(function (section) {
+  var imageWithTextDiv = document.createElement('div');
+  imageWithTextDiv.classList.add('imageWithTextDiv');
+  imageWithTextSectionContainer.appendChild();
+});
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -147,7 +266,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60331" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53098" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
