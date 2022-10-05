@@ -1,0 +1,20 @@
+{
+  "name": "whistler-adventures-1",
+  "version": "1.0.0",
+  "description": "Going to re-create the Whistler Adventures website:\r https://whistleradventures.ca/",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/canadiancode/Whistler-Adventures.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/canadiancode/Whistler-Adventures/issues"
+  },
+  "homepage": "https://github.com/canadiancode/Whistler-Adventures#readme"
+}
