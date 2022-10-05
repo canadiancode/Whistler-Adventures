@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/canadiancode/Whistler-Adventures/issues"
   },
-  "homepage": "https://github.com/canadiancode/Whistler-Adventures#readme"
+  "homepage": "https://github.com/canadiancode/Whistler-Adventures#readme",
+  "devDependencies": {
+    "sass": "^1.55.0"
+  }
 }
