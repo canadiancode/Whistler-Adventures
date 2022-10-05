@@ -1,3 +1,106 @@
-h1 {
-    color: red;
+/* General */
+* {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
 }
+
+:root {
+    --light-background-color: white;
+    --dark-background-color: black;
+    --box-shadow: 1px 1px 15px 8px black;
+    --light-text-color: white;
+    --dark-text-color: black;
+}
+
+/* Header --Section */
+
+.headerItemContainer {
+    position: fixed;
+    width: auto;
+    height: auto;
+    right: 2%;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 3em;
+    top: 30%;
+    z-index: 5;
+}
+
+/* Hero --Section */
+.heroSection {
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+}
+
+.heroSectionTextDiv {
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    padding-left: 4em;
+}
+
+.heroSectionPreTextEl {
+    margin: 0 auto;
+    padding: 0;
+    height: 1em;
+    width: 100%;
+    text-align: left;
+    color: var(--light-text-color);
+    text-shadow: 2px 2px 1px var(--dark-text-color);
+    margin: 0.2em;
+    font-size: 2.2em;
+}
+
+.heroSectionMainTextEl {
+    width: 100%;
+    text-align: left;
+    color: var(--light-text-color);
+    text-shadow: 2px 2px 1px var(--dark-text-color);
+    margin: 0.2em auto;
+    font-size: 3.5em;
+    padding-left: 0;
+}
+
+.heroSectionPostText {
+    margin: 0 auto;
+    text-align: left;
+    color: var(--light-text-color);
+    text-shadow: 2px 2px 1px var(--dark-text-color);
+    margin: 0.2em;
+    font-size: 2.2em;
+    margin-bottom: 0.9em;
+}
+
+.heroSectionCTAlink {
+    width: 100%;
+    text-decoration: none;
+    padding-left: 0.7em;
+}
+
+.heroSectionCTABtnEl {
+    padding: 0.8em 2.8em;
+}
+
+.heroSectionBackground {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    filter: brightness(40%)
+}
+
+.heroSectionBackgroundEl {
+    width: 100%;
+}
+
+/* Images with text --Section */
+
