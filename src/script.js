@@ -7,20 +7,24 @@ const headerMobileBackgroundSrc = '/Images/whistler village at night.jpg';
 const headerMobileBackgroundAlt = 'Mountain with a lake and forest';
 const headerNavItems = [
     {
-        item: 'Home',
-        link: '#'
-    }, 
-    {
         item: 'Adventures',
-        link: '/#adventures'
+        link: '/#adventures',
+        icon: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/icons8-national-park-64.png?v=1665121376'
     },
     {
+        item: 'Schedule',
+        link: '/#schedule',
+        icon: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/icons8-calendar-64.png?v=1665122827'
+    }, 
+    {
         item: 'About Us',
-        link: '/#aboutUs'
+        link: '/#aboutUs',
+        icon: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/icons8-tourist-guide-1-64.png?v=1665121336'
     },
     {
         item: 'Contact Us',
-        link: '/#contactUs'
+        link: '/#contactUs',
+        icon: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/icons8-at-sign-64.png?v=1665121219'
     }
 ];
 
@@ -34,14 +38,14 @@ headerNavItems.forEach(item => {
     headerItemDiv.classList.add('headerItemDiv');
     const headerItemButtonLinkEl = document.createElement('a');
     headerItemButtonLinkEl.classList.add('headerItemButtonLinkEl');
-    const headerItemButton = document.createElement('button');
-    headerItemButton.classList.add('headerItemButton');
-    headerItemButtonLinkEl.appendChild(headerItemButton);
-    headerItemDiv.appendChild(headerItemButtonLinkEl);
     headerItemButtonLinkEl.href = item.link;
+    const headerItemIconEl = document.createElement('img');
+    headerItemIconEl.classList.add('headerItemIconEl');
+    headerItemIconEl.src = item.icon;
+    headerItemIconEl.alt = item.item;
+    headerItemButtonLinkEl.appendChild(headerItemIconEl);
+    headerItemDiv.appendChild(headerItemButtonLinkEl);
     headerItemContainer.appendChild(headerItemDiv);
-    headerItemButton.appendChild(document.createTextNode(item.item));
-    headerItemButton.href = item.link;
 });
 
 // Hero --Section
@@ -49,7 +53,7 @@ headerNavItems.forEach(item => {
 const heroSectionText = [
     {
         preText: 'Explore what',
-        mainText: 'Whistler BC',
+        mainText: 'Whistler, BC',
         postText: 'has to offer!',
         CTAtext: 'Book Now',
         CTAlink: '#'
@@ -86,20 +90,21 @@ heroSectionPostText.classList.add('heroSectionPostText');
 heroSectionPostText.appendChild(document.createTextNode(heroSectionText[0].postText));
 heroSectionTextDiv.appendChild(heroSectionPostText);
 
-const heroSectionCTAlink = document.createElement('a');
+const heroSectionCTAlinkDiv = document.createElement('div');
+heroSectionCTAlinkDiv.classList.add('heroSectionCTAlinkDiv');
+const heroSectionCTAlinkEl = document.createElement('a');
+heroSectionCTAlinkEl.href = heroSectionText[0].CTAlink;
+heroSectionCTAlinkEl.classList.add('heroSectionCTAlinkEl');
+const heroSectionCTAlink = document.createElement('input');
 heroSectionCTAlink.classList.add('heroSectionCTAlink');
-heroSectionCTAlink.href = heroSectionText[0].CTAlink;
-const heroSectionCTABtnEl = document.createElement('button');
-heroSectionCTABtnEl.classList.add('heroSectionCTABtnEl');
-heroSectionCTABtnEl.appendChild(document.createTextNode(heroSectionText[0].CTAtext));
-heroSectionCTAlink.appendChild(heroSectionCTABtnEl);
-heroSectionTextDiv.appendChild(heroSectionCTAlink);
+heroSectionCTAlink.type = 'button';
+heroSectionCTAlink.value = heroSectionText[0].CTAtext;
+heroSectionCTAlinkEl.appendChild(heroSectionCTAlink);
+heroSectionCTAlinkDiv.appendChild(heroSectionCTAlinkEl);
+heroSectionTextDiv.appendChild(heroSectionCTAlinkDiv);
 
 // background 
 
-// Instead of adding a div img as the second layer,
-// just add the background as a background image URL
-// and set the background to cover in JS  
 
 
 // Images with text --Section
@@ -145,5 +150,5 @@ const imageWithTextSectionContainer = document.querySelector('.imagesAndTextSect
 imagesWithTextVariables.forEach(section => {
     const imageWithTextDiv = document.createElement('div');
     imageWithTextDiv.classList.add('imageWithTextDiv');
-    imageWithTextSectionContainer.appendChild();
 });
+

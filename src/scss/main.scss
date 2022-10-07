@@ -1,4 +1,8 @@
 /* General */
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     margin: 0 auto;
     padding: 0;
@@ -6,11 +10,17 @@
 }
 
 :root {
-    --light-background-color: white;
-    --dark-background-color: black;
-    --box-shadow: 1px 1px 15px 8px black;
-    --light-text-color: white;
-    --dark-text-color: black;
+    --light-background-color: #e9c580;
+    --dark-background-color: #232e2c;
+    --accent-bg-color: #27b5bd;
+    --more-transparent-bg-color: rgba(39, 181, 189, 0.4);
+    --less-transparent-bg-color: rgba(39, 181, 189, 0.9);
+    --box-shadow: 1px 1px 15px 8px #232e2c;
+    --light-text-color: #e9c580;
+    --dark-text-color: #232e2c;
+    --accent-text-color: #27b5bd;
+    --border-radius: 10px;
+    --transition-duration: 0.5s;
 }
 
 /* Header --Section */
@@ -21,9 +31,45 @@
     right: 2%;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    grid-gap: 3em;
+    grid-gap: 4em;
     top: 30%;
     z-index: 5;
+    @media screen and (max-width: 900px) {
+        top: auto;
+        bottom: 3%;
+        right: auto;
+        grid-template-columns: repeat(4, 1fr);
+        width: 100%;
+        grid-gap: 0em;
+    }
+    .headerItemDiv {
+        border-radius: 50%;
+        height: 4em;
+        width: 4em;
+        border: 4px solid var(--dark-background-color);
+        display: flex;
+        justify-content: center;
+        background: var(--more-transparent-bg-color);
+        cursor: pointer;
+        transition: var(--transition-duration);
+        &:hover {
+            background: var(--less-transparent-bg-color);
+            border: 4px solid var(--less-transparent-bg-color);
+        }
+        .headerItemButtonLinkEl {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-self: center;
+            justify-content: center;
+            border-radius: 50%;
+            .headerItemIconEl {
+                height: 70%;
+                display: flex;
+                align-self: center;
+            }
+        }
+    }
 }
 
 /* Hero --Section */
@@ -45,44 +91,53 @@
         position: absolute;
         padding-left: 4em;
         .heroSectionPreTextEl {
+            height: 1em;
+        }
+         p {
             margin: 0 auto;
             padding: 0;
-            height: 1em;
-            width: 100%;
             text-align: left;
-            color: var(--light-text-color);
-            text-shadow: 2px 2px 1px var(--dark-text-color);
-            margin: 0.2em;
             font-size: 2.2em;
-        }
+            margin: 0.2em;
+            text-shadow: 2px 2px 4px var(--dark-text-color);
+            color: var(--dark-text-color);
+            margin-bottom: 0.9em;
+            width: 100%;
+         }
         .heroSectionMainTextEl {
             width: 100%;
             text-align: left;
-            color: var(--light-text-color);
-            text-shadow: 2px 2px 1px var(--dark-text-color);
+            color: var(--accent-text-color);
+            text-shadow: 2px 2px 3px var(--dark-text-color);
             margin: 0.2em auto;
             font-size: 3.5em;
             padding-left: 0;
         }
         .heroSectionPostText {
-            margin: 0 auto;
-            text-align: left;
-            color: var(--light-text-color);
-            text-shadow: 2px 2px 1px var(--dark-text-color);
-            margin: 0.2em;
-            font-size: 2.2em;
-            margin-bottom: 0.9em;
+            margin-top: 0.5em;
         }
-        .heroSectionCTAlink {
+        .heroSectionCTAlinkDiv {
             width: 100%;
-            text-decoration: none;
-            padding-left: 0.7em;
-            .heroSectionCTABtnEl {
-                padding: 0.8em 2.8em;
+            display: block;
+            padding-left: 0.2em;
+            .heroSectionCTAlink {
+                width: 150px;
+                text-decoration: none;
+                padding: 0.8em 0.8em;
+                background: var(--more-transparent-bg-color);
+                color: var(--dark-text-color);
+                font-weight: bolder;
+                cursor: pointer;
+                border-radius: var(--border-radius);
+                border: solid 2px var(--dark-background-color);
+                transition: var(--transition-duration);
+                &:hover {
+                    background: var(--less-transparent-bg-color);
+                    border: solid 2px var(--less-transparent-bg-color);
+                }
             }
         }
     }
 }
 
 /* Images with text --Section */
-

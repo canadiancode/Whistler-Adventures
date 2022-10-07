@@ -126,17 +126,21 @@ var headerBusinessName = 'Whistler Adventures';
 var headerMobileBackgroundSrc = '/Images/whistler village at night.jpg';
 var headerMobileBackgroundAlt = 'Mountain with a lake and forest';
 var headerNavItems = [{
-  item: 'Home',
-  link: '#'
-}, {
   item: 'Adventures',
-  link: '/#adventures'
+  link: '/#adventures',
+  icon: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/icons8-national-park-64.png?v=1665121376'
+}, {
+  item: 'Schedule',
+  link: '/#schedule',
+  icon: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/icons8-calendar-64.png?v=1665122827'
 }, {
   item: 'About Us',
-  link: '/#aboutUs'
+  link: '/#aboutUs',
+  icon: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/icons8-tourist-guide-1-64.png?v=1665121336'
 }, {
   item: 'Contact Us',
-  link: '/#contactUs'
+  link: '/#contactUs',
+  icon: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/icons8-at-sign-64.png?v=1665121219'
 }]; // Right side section Output onto DOM for header items
 
 var body = document.querySelector('body');
@@ -148,20 +152,20 @@ headerNavItems.forEach(function (item) {
   headerItemDiv.classList.add('headerItemDiv');
   var headerItemButtonLinkEl = document.createElement('a');
   headerItemButtonLinkEl.classList.add('headerItemButtonLinkEl');
-  var headerItemButton = document.createElement('button');
-  headerItemButton.classList.add('headerItemButton');
-  headerItemButtonLinkEl.appendChild(headerItemButton);
-  headerItemDiv.appendChild(headerItemButtonLinkEl);
   headerItemButtonLinkEl.href = item.link;
+  var headerItemIconEl = document.createElement('img');
+  headerItemIconEl.classList.add('headerItemIconEl');
+  headerItemIconEl.src = item.icon;
+  headerItemIconEl.alt = item.item;
+  headerItemButtonLinkEl.appendChild(headerItemIconEl);
+  headerItemDiv.appendChild(headerItemButtonLinkEl);
   headerItemContainer.appendChild(headerItemDiv);
-  headerItemButton.appendChild(document.createTextNode(item.item));
-  headerItemButton.href = item.link;
 }); // Hero --Section
 // variables for hero section
 
 var heroSectionText = [{
   preText: 'Explore what',
-  mainText: 'Whistler BC',
+  mainText: 'Whistler, BC',
   postText: 'has to offer!',
   CTAtext: 'Book Now',
   CTAlink: '#'
@@ -188,17 +192,18 @@ var heroSectionPostText = document.createElement('p');
 heroSectionPostText.classList.add('heroSectionPostText');
 heroSectionPostText.appendChild(document.createTextNode(heroSectionText[0].postText));
 heroSectionTextDiv.appendChild(heroSectionPostText);
-var heroSectionCTAlink = document.createElement('a');
+var heroSectionCTAlinkDiv = document.createElement('div');
+heroSectionCTAlinkDiv.classList.add('heroSectionCTAlinkDiv');
+var heroSectionCTAlinkEl = document.createElement('a');
+heroSectionCTAlinkEl.href = heroSectionText[0].CTAlink;
+heroSectionCTAlinkEl.classList.add('heroSectionCTAlinkEl');
+var heroSectionCTAlink = document.createElement('input');
 heroSectionCTAlink.classList.add('heroSectionCTAlink');
-heroSectionCTAlink.href = heroSectionText[0].CTAlink;
-var heroSectionCTABtnEl = document.createElement('button');
-heroSectionCTABtnEl.classList.add('heroSectionCTABtnEl');
-heroSectionCTABtnEl.appendChild(document.createTextNode(heroSectionText[0].CTAtext));
-heroSectionCTAlink.appendChild(heroSectionCTABtnEl);
-heroSectionTextDiv.appendChild(heroSectionCTAlink); // background 
-// Instead of adding a div img as the second layer,
-// just add the background as a background image URL
-// and set the background to cover in JS  
+heroSectionCTAlink.type = 'button';
+heroSectionCTAlink.value = heroSectionText[0].CTAtext;
+heroSectionCTAlinkEl.appendChild(heroSectionCTAlink);
+heroSectionCTAlinkDiv.appendChild(heroSectionCTAlinkEl);
+heroSectionTextDiv.appendChild(heroSectionCTAlinkDiv); // background 
 // Images with text --Section
 // variables
 
@@ -236,7 +241,6 @@ var imageWithTextSectionContainer = document.querySelector('.imagesAndTextSectio
 imagesWithTextVariables.forEach(function (section) {
   var imageWithTextDiv = document.createElement('div');
   imageWithTextDiv.classList.add('imageWithTextDiv');
-  imageWithTextSectionContainer.appendChild();
 });
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -266,7 +270,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53098" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58447" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
