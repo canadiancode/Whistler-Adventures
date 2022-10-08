@@ -29,10 +29,10 @@ const headerNavItems = [
 ];
 
 // Right side section Output onto DOM for header items
-const body = document.querySelector('body');
+const parallaxWrapper = document.querySelector('.parallaxWrapper');
 const headerItemContainer = document.createElement('div');
 headerItemContainer.classList.add('headerItemContainer');
-body.appendChild(headerItemContainer);
+parallaxWrapper.appendChild(headerItemContainer);
 headerNavItems.forEach(item => {
     const headerItemDiv = document.createElement('div');
     headerItemDiv.classList.add('headerItemDiv');
@@ -62,8 +62,8 @@ const heroSectionText = [
 ];
 const heroSectonBackground = [
     {
-        url: '/Images/snowmobile tour.jpg',
-        altText: 'Group of people snowmobiling in Whistler'
+        foregroundURL: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/kisspng-spruce-fir-pine-forest-tree-forest-background-5b0c33e2d12164.6559149915275263708566.png?v=1665205529',
+        backgroundURL: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/kisspng-mountain-printing-poster-cloud-mountain-peak-5a88d1c20ab3d7.2778894415189160340439.png?v=1665205736'
     }
 ]
 
@@ -103,31 +103,39 @@ heroSectionCTAlinkEl.appendChild(heroSectionCTAlink);
 heroSectionCTAlinkDiv.appendChild(heroSectionCTAlinkEl);
 heroSectionTextDiv.appendChild(heroSectionCTAlinkDiv);
 
-// background 
+// background using Parallax
+const heroSectionBackgroundImgEl = document.createElement('img');
+heroSectionBackgroundImgEl.classList.add('heroSectionBackgroundImgEl');
+heroSectionBackgroundImgEl.src = heroSectonBackground[0].backgroundURL;
+const heroSectionForegroundImgEl = document.createElement('img');
+heroSectionForegroundImgEl.classList.add('heroSectionForegroundImgEl');
+heroSectionForegroundImgEl.src = heroSectonBackground[0].foregroundURL;
 
+heroSectionDiv.appendChild(heroSectionBackgroundImgEl);
+heroSectionDiv.appendChild(heroSectionForegroundImgEl);
 
 
 // Images with text --Section
 // variables
 const imagesWithTextVariables = [
     {
-        imageURL: '/Images/skiing in powder.jpg',
+        imageURL: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/pexels-pixabay-358046.jpg?v=1665206414',
         imageAltText: 'Person skiing in deep powder',
-        heading: 'Skiing & Snowboarding',
+        heading: 'Skiing',
         subText: 'Get guided by our experienced riders to find the best powder on the both Whistler and Blackcomb!',
         CTAtext: 'Book Now!',
         CTAlink: '/#'
     },
     {
-        imageURL: '/Images/hiking in whistler.avif',
-        imageAltText: 'People hiking in Whistler',
-        heading: 'Hiking',
-        subText: 'Enjoy the best views Whistler can offer!',
+        imageURL: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/pexels-visit-almaty-848612.jpg?v=1665206520',
+        imageAltText: '3 snowboarders going up to the mountain',
+        heading: 'Snowboarding',
+        subText: 'Get quick access to teh lift, and skip the lines to get the most out of your time in Whistler!',
         CTAtext: 'Book Now!',
         CTAlink: '/#'
     },
     {
-        imageURL: '/Images/hiking on top of a mountain.avif',
+        imageURL: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/pexels-irene-lasus-90454.jpg?v=1665206608',
         imageAltText: 'Person mountain biking down a trail in Whistler',
         heading: 'Mountain Biking',
         subText: 'Find the best trails for your skill level in the Whistler Bike Park as well as the surrounding trails!',
@@ -135,10 +143,10 @@ const imagesWithTextVariables = [
         CTAlink: '/#'
     },
     {
-        imageURL: '/Images/river within a forest from the top view.jpg',
-        imageAltText: 'Top view of a river flowing through a forest',
-        heading: 'White Water Rafting',
-        subText: 'Experience the excitement of river rafting!',
+        imageURL: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/pexels-eric-sanman-1365425.jpg?v=1665206645',
+        imageAltText: '3 people hiking up a mountain with lots of gear',
+        heading: 'Hiking',
+        subText: 'Experience the beautiful scenery that Whistler has to offer following our experienced tour guides!',
         CTAtext: 'Book Now!',
         CTAlink: '/#'
     }
@@ -148,7 +156,32 @@ const imagesWithTextVariables = [
 const imageWithTextSectionContainer = document.querySelector('.imagesAndTextSection');
 
 imagesWithTextVariables.forEach(section => {
-    const imageWithTextDiv = document.createElement('div');
-    imageWithTextDiv.classList.add('imageWithTextDiv');
+
+const imagesWithTextDivEachItem = document.createElement('div');
+imagesWithTextDivEachItem.classList.add('imagesWithTextDivEachItem');
+
+const imagesWithTextImgDiv = document.createElement('div');
+imagesWithTextImgDiv.classList.add('imagesWithTextImgDiv');
+const imagesWithTextImgEl = document.createElement('img');
+imagesWithTextImgEl.classList.add('imagesWithTextImgEl');
+imagesWithTextImgEl.src = section.imageURL;
+imagesWithTextImgEl.alt = section.imageAltText;
+imagesWithTextImgDiv.appendChild(imagesWithTextImgEl);
+
+const imagesWithTextTextDiv = document.createElement('div');
+imagesWithTextTextDiv.classList.add('imagesWithTextTextDiv');
+const imagesWithTextTextHeader = document.createElement('h1');
+imagesWithTextTextHeader.classList.add('imagesWithTextTextHeader');
+imagesWithTextTextHeader.appendChild(document.createTextNode(section.heading));
+const imagesWithTextTextPar = document.createElement('p');
+imagesWithTextTextPar.classList.add('imagesWithTextTextPar');
+imagesWithTextTextPar.appendChild(document.createTextNode(section.subText));
+imagesWithTextTextDiv.appendChild(imagesWithTextTextHeader);
+imagesWithTextTextDiv.appendChild(imagesWithTextTextPar);
+
+imagesWithTextDivEachItem.appendChild(imagesWithTextImgDiv);
+imagesWithTextDivEachItem.appendChild(imagesWithTextTextDiv);
+imageWithTextSectionContainer.appendChild(imagesWithTextDivEachItem);
+
 });
 

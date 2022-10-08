@@ -23,6 +23,13 @@ html {
   --transition-duration: 0.5s;
 }
 
+.parallaxWrapper {
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  perspective: 10px;
+}
+
 /* Header --Section */
 .headerItemContainer {
   position: fixed;
@@ -82,6 +89,14 @@ html {
   overflow: hidden;
   position: relative;
   margin: 0 auto;
+  transform-style: preserve-3d;
+  z-index: -1;
+}
+.heroSection img {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  object-fit: cover;
 }
 .heroSection .heroSectionTextDiv {
   width: 100%;
@@ -143,5 +158,79 @@ html {
 }
 
 /* Images with text --Section */
+.imagesAndTextSection {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-shadow: 0px 0px 20px 20px var(--dark-background-color);
+}
+.imagesAndTextSection .imagesWithTextDivEachItem {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  background-color: var(--dark-background-color);
+}
+@media screen and (max-width: 900px) {
+  .imagesAndTextSection .imagesWithTextDivEachItem {
+    display: block;
+  }
+  .imagesAndTextSection .imagesWithTextDivEachItem .imagesWithTextImgDiv {
+    padding-top: 2em;
+  }
+}
+.imagesAndTextSection .imagesWithTextDivEachItem .imagesWithTextImgDiv {
+  width: 50%;
+  height: auto;
+}
+@media screen and (max-width: 900px) {
+  .imagesAndTextSection .imagesWithTextDivEachItem .imagesWithTextImgDiv {
+    width: 80%;
+  }
+}
+.imagesAndTextSection .imagesWithTextDivEachItem .imagesWithTextImgEl {
+  height: auto;
+  width: 100%;
+}
+.imagesAndTextSection .imagesWithTextTextDiv {
+  margin: 0;
+  padding: 0;
+  padding-left: 3em;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: left;
+  background-color: var(--dark-background-color);
+}
+.imagesAndTextSection .imagesWithTextTextDiv h1, .imagesAndTextSection .imagesWithTextTextDiv p {
+  color: var(--light-text-color);
+  text-align: left;
+}
+.imagesAndTextSection .imagesWithTextTextDiv .imagesWithTextTextHeader {
+  width: 100%;
+  padding-bottom: 1em;
+}
+.imagesAndTextSection .imagesWithTextTextDiv .imagesWithTextTextPar {
+  width: 100%;
+  padding-right: 25%;
+}
+@media screen and (max-width: 900px) {
+  .imagesAndTextSection .imagesWithTextTextDiv {
+    padding-left: 0em;
+    width: 100%;
+    text-align: center;
+  }
+  .imagesAndTextSection .imagesWithTextTextDiv h1, .imagesAndTextSection .imagesWithTextTextDiv p {
+    text-align: center;
+  }
+  .imagesAndTextSection .imagesWithTextTextDiv .imagesWithTextTextHeader {
+    padding-bottom: 0em;
+  }
+  .imagesAndTextSection .imagesWithTextTextDiv .imagesWithTextTextPar {
+    padding: 1em 4em;
+  }
+}
 
 /*# sourceMappingURL=/main.77bb5cfd.css.map */
