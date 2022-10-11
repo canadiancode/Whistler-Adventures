@@ -29,10 +29,10 @@ const headerNavItems = [
 ];
 
 // Right side section Output onto DOM for header items
-const parallaxWrapper = document.querySelector('.parallaxWrapper');
+const body = document.querySelector('body');
 const headerItemContainer = document.createElement('div');
 headerItemContainer.classList.add('headerItemContainer');
-parallaxWrapper.appendChild(headerItemContainer);
+body.appendChild(headerItemContainer);
 headerNavItems.forEach(item => {
     const headerItemDiv = document.createElement('div');
     headerItemDiv.classList.add('headerItemDiv');
@@ -60,15 +60,40 @@ const heroSectionText = [
 
     }
 ];
+
+// {
+//     foregroundURL: 'https://cdn.shopify.com/s/files/1/0655/0051/2490/files/kisspng-tree-shulin-district-forest-green-green-gradient-forest-5a924d0e0487c1.8541673415195374220186_2.png?v=1665469648',
+//     backgroundURL: 'https://cdn.shopify.com/s/files/1/0655/0051/2490/files/kisspng-lake-shutterstock-clip-art-mountain-5a973f5866bac8.2980430215198615924208_4.png?v=1665469781'
+// }
+
+
 const heroSectonBackground = [
     {
-        foregroundURL: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/kisspng-spruce-fir-pine-forest-tree-forest-background-5b0c33e2d12164.6559149915275263708566.png?v=1665205529',
-        backgroundURL: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/kisspng-mountain-printing-poster-cloud-mountain-peak-5a88d1c20ab3d7.2778894415189160340439.png?v=1665205736'
+        foregroundURL: 'https://cdn.shopify.com/s/files/1/0655/0051/2490/files/kisspng-tree-shulin-district-forest-green-green-gradient-forest-5a924d0e0487c1.8541673415195374220186_2.png?v=1665469648',
+        midgroundURL: 'https://cdn.shopify.com/s/files/1/0655/0051/2490/files/6400b16e-9295-4e4d-b2ee-7e0b5bff5c19.png?v=1665471358',
+        backgroundURL: 'https://cdn.shopify.com/s/files/1/0655/0051/2490/files/kisspng-lake-shutterstock-clip-art-mountain-5a973f5866bac8.2980430215198615924208_4.png?v=1665469781'
     }
 ]
 
 // Hero section output to DOM
 const heroSectionDiv = document.querySelector('.heroSection');
+
+// background using Parallax
+const heroSectionBackgroundImgEl = document.createElement('img');
+heroSectionBackgroundImgEl.classList.add('heroSectionBackgroundImgEl');
+heroSectionBackgroundImgEl.src = heroSectonBackground[0].backgroundURL;
+
+const heroSectionmidgroundImgEl = document.createElement('img');
+heroSectionmidgroundImgEl.classList.add('heroSectionMidgroundImgEl');
+heroSectionmidgroundImgEl.src = heroSectonBackground[0].midgroundURL;
+
+const heroSectionForegroundImgEl = document.createElement('img');
+heroSectionForegroundImgEl.classList.add('heroSectionForegroundImgEl');
+heroSectionForegroundImgEl.src = heroSectonBackground[0].foregroundURL;
+
+heroSectionDiv.appendChild(heroSectionBackgroundImgEl);
+heroSectionDiv.appendChild(heroSectionmidgroundImgEl);
+heroSectionDiv.appendChild(heroSectionForegroundImgEl);
 
 // text
 const heroSectionTextDiv = document.createElement('div');
@@ -102,17 +127,6 @@ heroSectionCTAlink.value = heroSectionText[0].CTAtext;
 heroSectionCTAlinkEl.appendChild(heroSectionCTAlink);
 heroSectionCTAlinkDiv.appendChild(heroSectionCTAlinkEl);
 heroSectionTextDiv.appendChild(heroSectionCTAlinkDiv);
-
-// background using Parallax
-const heroSectionBackgroundImgEl = document.createElement('img');
-heroSectionBackgroundImgEl.classList.add('heroSectionBackgroundImgEl');
-heroSectionBackgroundImgEl.src = heroSectonBackground[0].backgroundURL;
-const heroSectionForegroundImgEl = document.createElement('img');
-heroSectionForegroundImgEl.classList.add('heroSectionForegroundImgEl');
-heroSectionForegroundImgEl.src = heroSectonBackground[0].foregroundURL;
-
-heroSectionDiv.appendChild(heroSectionBackgroundImgEl);
-heroSectionDiv.appendChild(heroSectionForegroundImgEl);
 
 
 // Images with text --Section
@@ -170,7 +184,7 @@ imagesWithTextImgDiv.appendChild(imagesWithTextImgEl);
 
 const imagesWithTextTextDiv = document.createElement('div');
 imagesWithTextTextDiv.classList.add('imagesWithTextTextDiv');
-const imagesWithTextTextHeader = document.createElement('h1');
+const imagesWithTextTextHeader = document.createElement('h2');
 imagesWithTextTextHeader.classList.add('imagesWithTextTextHeader');
 imagesWithTextTextHeader.appendChild(document.createTextNode(section.heading));
 const imagesWithTextTextPar = document.createElement('p');

@@ -10,28 +10,20 @@ html {
 }
 
 :root {
-    --light-background-color: #e9c580;
-    --dark-background-color: #232e2c;
+    --light-background-color: #fcf6eb;
+    --dark-background-color: #1d1d1b;
     --accent-bg-color: #27b5bd;
     --more-transparent-bg-color: rgba(39, 181, 189, 0.4);
     --less-transparent-bg-color: rgba(39, 181, 189, 0.9);
-    --box-shadow: 1px 1px 15px 8px #232e2c;
-    --light-text-color: #e9c580;
-    --dark-text-color: #232e2c;
+    --box-shadow: 1px 1px 15px 8px #1d1d1b;
+    --light-text-color: #fcf6eb;
+    --dark-text-color: #1d1d1b;
     --accent-text-color: #27b5bd;
     --border-radius: 10px;
     --transition-duration: 0.5s;
 }
 
-// Parallax Wrapper
-.parallaxWrapper {
-    height: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
-    perspective: 10px;
-}
-
-/* Header --Section */
+/* Header Navigation --Section */
 .headerItemContainer {
     position: fixed;
     width: auto;
@@ -80,83 +72,101 @@ html {
     }
 }
 
+// Parallax Wrapper
+.parallaxWrapper {
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    perspective: 10px;
+}
+
 /* Hero --Section */
 .heroSection {
-    width: 100%;
-    height: 100vh;
-    z-index: 1;
-    overflow: hidden;
     position: relative;
-    margin: 0 auto;
-
-    // key line for the parallax effect
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
     transform-style: preserve-3d;
     z-index: -1;
-    img {
+
+    .heroSectionBackgroundImgEl {
+        transform: translateZ(-10px) scale(2);
+    }
+    .heroSectionMidgroundImgEl {
+        transform: translateZ(-5px) scale(1.5);
+    }
+    .heroSectionForegroundImgEl {
+        transform: translateZ(-2.5px) scale(1.25);
+    }
+    .heroSectionBackgroundImgEl,
+    .heroSectionMidgroundImgEl,
+    .heroSectionForegroundImgEl {
         position: absolute;
+        height: 100%;
         width: 100%;
-        bottom: 0;
         object-fit: cover;
+        z-index: -1;
     }
 
-    .heroSectionTextDiv {
-        width: 100%;
-        height: 100%;
-        z-index: 5;
+    // hero text
+  .heroSectionTextDiv {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: block;
+    padding-left: 4em;
+    .heroSectionPreTextEl {
+        height: 1em;
+    }
+    p {
         margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        position: absolute;
-        padding-left: 4em;
-        .heroSectionPreTextEl {
-            height: 1em;
-        }
-        p {
-            margin: 0 auto;
-            padding: 0;
-            text-align: left;
-            font-size: 2.2em;
-            margin: 0.2em;
-            text-shadow: 2px 2px 4px var(--dark-text-color);
-            color: var(--dark-text-color);
-            margin-bottom: 0.9em;
-            width: 100%;
-         }
-        .heroSectionMainTextEl {
-            width: 100%;
-            text-align: left;
-            color: var(--accent-text-color);
-            text-shadow: 2px 2px 3px var(--dark-text-color);
-            margin: 0.2em auto;
-            font-size: 3.5em;
-            padding-left: 0;
-        }
-        .heroSectionPostText {
-            margin-top: 0.5em;
-        }
-        .heroSectionCTAlinkDiv {
-            width: 100%;
-            display: block;
-            padding-left: 0.2em;
-            .heroSectionCTAlink {
-                width: 150px;
-                text-decoration: none;
-                padding: 0.8em 0.8em;
-                background: var(--more-transparent-bg-color);
-                color: var(--dark-text-color);
-                font-weight: bolder;
-                cursor: pointer;
-                border-radius: var(--border-radius);
-                border: solid 2px var(--dark-background-color);
-                transition: var(--transition-duration);
-                &:hover {
-                    background: var(--less-transparent-bg-color);
-                    border: solid 2px var(--less-transparent-bg-color);
-                }
+        padding: 0;
+        text-align: left;
+        font-size: 2.2em;
+        margin: 0.2em;
+        text-shadow: 2px 2px 4px var(--accent-text-color);
+        color: var(--light-text-color);
+        margin-bottom: 0.9em;
+        width: 100%;
+     }
+    .heroSectionMainTextEl {
+        width: 100%;
+        text-align: left;
+        color: var(--accent-text-color);
+        text-shadow: 2px 2px 3px var(--light-text-color);
+        margin: 0.2em auto;
+        font-size: 3.5em;
+        padding-left: 0;
+    }
+    .heroSectionPostText {
+        margin-top: 0.5em;
+    }
+    .heroSectionCTAlinkDiv {
+        width: 100%;
+        display: block;
+        padding-left: 0.2em;
+        .heroSectionCTAlink {
+            width: 150px;
+            text-decoration: none;
+            padding: 0.8em 0.8em;
+            background: var(--more-transparent-bg-color);
+            color: var(--light-text-color);
+            font-weight: bolder;
+            cursor: pointer;
+            border-radius: var(--border-radius);
+            border: solid 2px var(--light-background-color);
+            transition: var(--transition-duration);
+            &:hover {
+                background: var(--less-transparent-bg-color);
+                border: solid 2px var(--less-transparent-bg-color);
             }
         }
     }
+  }
 }
 
 /* Images with text --Section */
@@ -205,7 +215,7 @@ html {
             flex-direction: column;
             text-align: left;
             background-color: var(--dark-background-color);
-            h1, p {
+            h2, p {
                 color: var(--light-text-color);
                 text-align: left;
             }
@@ -223,7 +233,7 @@ html {
                     width: 100%;
                     text-align: center;
                 }
-                h1, p {
+                h2, p {
                     text-align: center;
                 }
                 .imagesWithTextTextHeader {

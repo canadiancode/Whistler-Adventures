@@ -143,10 +143,10 @@ var headerNavItems = [{
   icon: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/icons8-at-sign-64.png?v=1665121219'
 }]; // Right side section Output onto DOM for header items
 
-var parallaxWrapper = document.querySelector('.parallaxWrapper');
+var body = document.querySelector('body');
 var headerItemContainer = document.createElement('div');
 headerItemContainer.classList.add('headerItemContainer');
-parallaxWrapper.appendChild(headerItemContainer);
+body.appendChild(headerItemContainer);
 headerNavItems.forEach(function (item) {
   var headerItemDiv = document.createElement('div');
   headerItemDiv.classList.add('headerItemDiv');
@@ -169,13 +169,31 @@ var heroSectionText = [{
   postText: 'has to offer!',
   CTAtext: 'Book Now',
   CTAlink: '#'
-}];
+}]; // {
+//     foregroundURL: 'https://cdn.shopify.com/s/files/1/0655/0051/2490/files/kisspng-tree-shulin-district-forest-green-green-gradient-forest-5a924d0e0487c1.8541673415195374220186_2.png?v=1665469648',
+//     backgroundURL: 'https://cdn.shopify.com/s/files/1/0655/0051/2490/files/kisspng-lake-shutterstock-clip-art-mountain-5a973f5866bac8.2980430215198615924208_4.png?v=1665469781'
+// }
+
 var heroSectonBackground = [{
-  foregroundURL: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/kisspng-spruce-fir-pine-forest-tree-forest-background-5b0c33e2d12164.6559149915275263708566.png?v=1665205529',
-  backgroundURL: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/kisspng-mountain-printing-poster-cloud-mountain-peak-5a88d1c20ab3d7.2778894415189160340439.png?v=1665205736'
+  foregroundURL: 'https://cdn.shopify.com/s/files/1/0655/0051/2490/files/kisspng-tree-shulin-district-forest-green-green-gradient-forest-5a924d0e0487c1.8541673415195374220186_2.png?v=1665469648',
+  midgroundURL: 'https://cdn.shopify.com/s/files/1/0655/0051/2490/files/6400b16e-9295-4e4d-b2ee-7e0b5bff5c19.png?v=1665471358',
+  backgroundURL: 'https://cdn.shopify.com/s/files/1/0655/0051/2490/files/kisspng-lake-shutterstock-clip-art-mountain-5a973f5866bac8.2980430215198615924208_4.png?v=1665469781'
 }]; // Hero section output to DOM
 
-var heroSectionDiv = document.querySelector('.heroSection'); // text
+var heroSectionDiv = document.querySelector('.heroSection'); // background using Parallax
+
+var heroSectionBackgroundImgEl = document.createElement('img');
+heroSectionBackgroundImgEl.classList.add('heroSectionBackgroundImgEl');
+heroSectionBackgroundImgEl.src = heroSectonBackground[0].backgroundURL;
+var heroSectionmidgroundImgEl = document.createElement('img');
+heroSectionmidgroundImgEl.classList.add('heroSectionMidgroundImgEl');
+heroSectionmidgroundImgEl.src = heroSectonBackground[0].midgroundURL;
+var heroSectionForegroundImgEl = document.createElement('img');
+heroSectionForegroundImgEl.classList.add('heroSectionForegroundImgEl');
+heroSectionForegroundImgEl.src = heroSectonBackground[0].foregroundURL;
+heroSectionDiv.appendChild(heroSectionBackgroundImgEl);
+heroSectionDiv.appendChild(heroSectionmidgroundImgEl);
+heroSectionDiv.appendChild(heroSectionForegroundImgEl); // text
 
 var heroSectionTextDiv = document.createElement('div');
 heroSectionTextDiv.classList.add('heroSectionTextDiv');
@@ -203,16 +221,7 @@ heroSectionCTAlink.type = 'button';
 heroSectionCTAlink.value = heroSectionText[0].CTAtext;
 heroSectionCTAlinkEl.appendChild(heroSectionCTAlink);
 heroSectionCTAlinkDiv.appendChild(heroSectionCTAlinkEl);
-heroSectionTextDiv.appendChild(heroSectionCTAlinkDiv); // background using Parallax
-
-var heroSectionBackgroundImgEl = document.createElement('img');
-heroSectionBackgroundImgEl.classList.add('heroSectionBackgroundImgEl');
-heroSectionBackgroundImgEl.src = heroSectonBackground[0].backgroundURL;
-var heroSectionForegroundImgEl = document.createElement('img');
-heroSectionForegroundImgEl.classList.add('heroSectionForegroundImgEl');
-heroSectionForegroundImgEl.src = heroSectonBackground[0].foregroundURL;
-heroSectionDiv.appendChild(heroSectionBackgroundImgEl);
-heroSectionDiv.appendChild(heroSectionForegroundImgEl); // Images with text --Section
+heroSectionTextDiv.appendChild(heroSectionCTAlinkDiv); // Images with text --Section
 // variables
 
 var imagesWithTextVariables = [{
@@ -258,7 +267,7 @@ imagesWithTextVariables.forEach(function (section) {
   imagesWithTextImgDiv.appendChild(imagesWithTextImgEl);
   var imagesWithTextTextDiv = document.createElement('div');
   imagesWithTextTextDiv.classList.add('imagesWithTextTextDiv');
-  var imagesWithTextTextHeader = document.createElement('h1');
+  var imagesWithTextTextHeader = document.createElement('h2');
   imagesWithTextTextHeader.classList.add('imagesWithTextTextHeader');
   imagesWithTextTextHeader.appendChild(document.createTextNode(section.heading));
   var imagesWithTextTextPar = document.createElement('p');
@@ -298,7 +307,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64097" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56506" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
