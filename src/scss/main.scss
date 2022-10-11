@@ -129,9 +129,10 @@ html {
         font-size: 2.2em;
         margin: 0.2em;
         text-shadow: 2px 2px 4px var(--accent-text-color);
-        color: var(--light-text-color);
+        color: var(--dark-text-color);
         margin-bottom: 0.9em;
         width: 100%;
+        font-weight: bolder;
      }
     .heroSectionMainTextEl {
         width: 100%;
@@ -141,6 +142,7 @@ html {
         margin: 0.2em auto;
         font-size: 3.5em;
         padding-left: 0;
+        font-weight: bolder;
     }
     .heroSectionPostText {
         margin-top: 0.5em;
