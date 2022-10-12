@@ -98,7 +98,7 @@ html {
   transform: translateZ(-5px) scale(1.5);
 }
 .heroSection .heroSectionForegroundImgEl {
-  transform: translateZ(-2.5px) scale(1.25);
+  transform: translateZ(-2.5px) scale(1.26);
 }
 .heroSection .heroSectionBackgroundImgEl,
 .heroSection .heroSectionMidgroundImgEl,
@@ -117,7 +117,12 @@ html {
   flex-direction: column;
   justify-content: center;
   position: block;
-  padding-left: 4em;
+  padding-left: 10em;
+}
+@media screen and (max-width: 900px) {
+  .heroSection .heroSectionTextDiv {
+    padding-left: 4em;
+  }
 }
 .heroSection .heroSectionTextDiv .heroSectionPreTextEl {
   height: 1em;
@@ -126,7 +131,7 @@ html {
   margin: 0 auto;
   padding: 0;
   text-align: left;
-  font-size: 2.2em;
+  font-size: 4em;
   margin: 0.2em;
   text-shadow: 2px 2px 4px var(--accent-text-color);
   color: var(--dark-text-color);
@@ -140,7 +145,7 @@ html {
   color: var(--accent-text-color);
   text-shadow: 2px 2px 3px var(--light-text-color);
   margin: 0.2em auto;
-  font-size: 3.5em;
+  font-size: 5em;
   padding-left: 0;
   font-weight: bolder;
 }
@@ -155,7 +160,7 @@ html {
 .heroSection .heroSectionTextDiv .heroSectionCTAlinkDiv .heroSectionCTAlink {
   width: 150px;
   text-decoration: none;
-  padding: 0.8em 0.8em;
+  padding: 1em 2em;
   background: var(--more-transparent-bg-color);
   color: var(--light-text-color);
   font-weight: bolder;
@@ -168,6 +173,16 @@ html {
   background: var(--less-transparent-bg-color);
   border: solid 2px var(--less-transparent-bg-color);
 }
+@media screen and (max-width: 900px) {
+  .heroSection .heroSectionTextDiv .heroSectionMainTextEl {
+    font-size: 4em;
+    padding-right: 1.5em;
+  }
+  .heroSection .heroSectionTextDiv p {
+    font-size: 2.5em;
+    padding-right: 1.5em;
+  }
+}
 
 /* Images with text --Section */
 .imagesAndTextSection {
@@ -177,18 +192,25 @@ html {
   padding: 0;
   box-shadow: 0px 0px 20px 20px var(--dark-background-color);
 }
+@media screen and (max-width: 900px) {
+  .imagesAndTextSection {
+    padding-bottom: 5em;
+    margin-bottom: 5em;
+  }
+}
 .imagesAndTextSection .imagesWithTextDivEachItem {
   width: fit-content;
   height: fit-content;
   display: flex;
   background-color: var(--dark-background-color);
+  min-height: 28em;
 }
 @media screen and (max-width: 900px) {
   .imagesAndTextSection .imagesWithTextDivEachItem {
     display: block;
   }
   .imagesAndTextSection .imagesWithTextDivEachItem .imagesWithTextImgDiv {
-    padding-top: 2em;
+    padding-top: 4em;
   }
 }
 .imagesAndTextSection .imagesWithTextDivEachItem .imagesWithTextImgDiv {
@@ -203,6 +225,13 @@ html {
 .imagesAndTextSection .imagesWithTextDivEachItem .imagesWithTextImgEl {
   height: auto;
   width: 100%;
+  transform: scale(80%);
+  box-shadow: 0px 0px 20px 5px var(--accent-bg-color);
+}
+@media screen and (width: 900px) {
+  .imagesAndTextSection .imagesWithTextDivEachItem .imagesWithTextImgEl {
+    transform: scale(100%);
+  }
 }
 .imagesAndTextSection .imagesWithTextTextDiv {
   margin: 0;
@@ -222,11 +251,39 @@ html {
 }
 .imagesAndTextSection .imagesWithTextTextDiv .imagesWithTextTextHeader {
   width: 100%;
-  padding-bottom: 1em;
+  padding-bottom: 0.6em;
+  font-size: 3em;
+  text-shadow: 2px 2px 4px var(--accent-text-color);
 }
 .imagesAndTextSection .imagesWithTextTextDiv .imagesWithTextTextPar {
   width: 100%;
   padding-right: 25%;
+  font-size: 1.5em;
+  line-height: 2em;
+  margin-bottom: 1em;
+}
+.imagesAndTextSection .imagesWithTextTextDiv .imageWithTextButtonDiv {
+  width: 100%;
+  display: block;
+}
+.imagesAndTextSection .imagesWithTextTextDiv .imageWithTextButtonDiv .imageWithTextButtonLink {
+  text-decoration: none;
+}
+.imagesAndTextSection .imagesWithTextTextDiv .imageWithTextButtonDiv .imageWithTextButtonLink button {
+  width: 150px;
+  text-decoration: none;
+  padding: 1em 2em;
+  background: var(--more-transparent-bg-color);
+  color: var(--light-text-color);
+  font-weight: bolder;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  border: solid 2px var(--light-background-color);
+  transition: var(--transition-duration);
+}
+.imagesAndTextSection .imagesWithTextTextDiv .imageWithTextButtonDiv .imageWithTextButtonLink button:hover {
+  background: var(--less-transparent-bg-color);
+  border: solid 2px var(--less-transparent-bg-color);
 }
 @media screen and (max-width: 900px) {
   .imagesAndTextSection .imagesWithTextTextDiv {

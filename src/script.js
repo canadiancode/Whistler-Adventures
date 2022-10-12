@@ -61,17 +61,11 @@ const heroSectionText = [
     }
 ];
 
-// {
-//     foregroundURL: 'https://cdn.shopify.com/s/files/1/0655/0051/2490/files/kisspng-tree-shulin-district-forest-green-green-gradient-forest-5a924d0e0487c1.8541673415195374220186_2.png?v=1665469648',
-//     backgroundURL: 'https://cdn.shopify.com/s/files/1/0655/0051/2490/files/kisspng-lake-shutterstock-clip-art-mountain-5a973f5866bac8.2980430215198615924208_4.png?v=1665469781'
-// }
-
-
 const heroSectonBackground = [
     {
-        foregroundURL: 'https://cdn.shopify.com/s/files/1/0655/0051/2490/files/kisspng-tree-shulin-district-forest-green-green-gradient-forest-5a924d0e0487c1.8541673415195374220186_2.png?v=1665469648',
-        midgroundURL: 'https://cdn.shopify.com/s/files/1/0655/0051/2490/files/6400b16e-9295-4e4d-b2ee-7e0b5bff5c19.png?v=1665471358',
-        backgroundURL: 'https://cdn.shopify.com/s/files/1/0655/0051/2490/files/kisspng-lake-shutterstock-clip-art-mountain-5a973f5866bac8.2980430215198615924208_4.png?v=1665469781'
+        foregroundURL: 'https://cdn.shopify.com/s/files/1/0655/0051/2490/files/kisspng-tree-shulin-district-forest-green-green-gradient-forest-5a924d0e0487c1.8541673415195374220186_1_1.png?v=1665551713',
+        midgroundURL: 'https://cdn.shopify.com/s/files/1/0655/0051/2490/files/kisspng-stubai-alps-stubai-glacier-stubaital-piste-snow-mountain-glacier-5a9e00e97547e3.0245348315203043614804.png?v=1665468788',
+        backgroundURL: 'https://cdn.shopify.com/s/files/1/0655/0051/2490/files/5a28b836c89407.7959156615126180388216_1.png?v=1665551884'
     }
 ]
 
@@ -174,6 +168,7 @@ imagesWithTextVariables.forEach(section => {
 const imagesWithTextDivEachItem = document.createElement('div');
 imagesWithTextDivEachItem.classList.add('imagesWithTextDivEachItem');
 
+// images
 const imagesWithTextImgDiv = document.createElement('div');
 imagesWithTextImgDiv.classList.add('imagesWithTextImgDiv');
 const imagesWithTextImgEl = document.createElement('img');
@@ -182,6 +177,7 @@ imagesWithTextImgEl.src = section.imageURL;
 imagesWithTextImgEl.alt = section.imageAltText;
 imagesWithTextImgDiv.appendChild(imagesWithTextImgEl);
 
+// text
 const imagesWithTextTextDiv = document.createElement('div');
 imagesWithTextTextDiv.classList.add('imagesWithTextTextDiv');
 const imagesWithTextTextHeader = document.createElement('h2');
@@ -192,6 +188,19 @@ imagesWithTextTextPar.classList.add('imagesWithTextTextPar');
 imagesWithTextTextPar.appendChild(document.createTextNode(section.subText));
 imagesWithTextTextDiv.appendChild(imagesWithTextTextHeader);
 imagesWithTextTextDiv.appendChild(imagesWithTextTextPar);
+
+// call-to-action button
+const imageWithTextButtonDiv = document.createElement('div');
+imageWithTextButtonDiv.classList.add('imageWithTextButtonDiv');
+const imageWithTextButtonLink = document.createElement('a');
+imageWithTextButtonLink.classList.add('imageWithTextButtonLink');
+const imageWithTextButtonEl = document.createElement('button');
+imageWithTextButtonEl.classList.add('imageWithTextButtonEl');
+imageWithTextButtonLink.href = section.CTAlink;
+imageWithTextButtonEl.appendChild(document.createTextNode(section.CTAtext));
+imageWithTextButtonLink.appendChild(imageWithTextButtonEl);
+imageWithTextButtonDiv.appendChild(imageWithTextButtonLink);
+imagesWithTextTextDiv.appendChild(imageWithTextButtonDiv);
 
 imagesWithTextDivEachItem.appendChild(imagesWithTextImgDiv);
 imagesWithTextDivEachItem.appendChild(imagesWithTextTextDiv);
