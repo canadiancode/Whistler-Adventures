@@ -105,7 +105,7 @@ html {
 .heroSection .heroSectionForegroundImgEl {
   position: absolute;
   height: 100%;
-  width: 100%;
+  width: 101%;
   object-fit: cover;
   z-index: -1;
 }
@@ -261,6 +261,7 @@ html {
   flex-direction: column;
   text-align: left;
   background-color: var(--dark-background-color);
+  position: relative;
 }
 .imagesAndTextSection .imagesWithTextTextDiv h2, .imagesAndTextSection .imagesWithTextTextDiv p {
   color: var(--light-text-color);
@@ -271,6 +272,7 @@ html {
   padding-bottom: 0.6em;
   font-size: 3em;
   text-shadow: 2px 2px 4px var(--accent-text-color);
+  z-index: 3;
 }
 .imagesAndTextSection .imagesWithTextTextDiv .imagesWithTextTextPar {
   width: 100%;
@@ -278,10 +280,13 @@ html {
   font-size: 1.5em;
   line-height: 2em;
   margin-bottom: 1em;
+  z-index: 3;
 }
 .imagesAndTextSection .imagesWithTextTextDiv .imageWithTextButtonDiv {
   width: 100%;
+  height: auto;
   display: block;
+  z-index: 3;
 }
 .imagesAndTextSection .imagesWithTextTextDiv .imageWithTextButtonDiv .imageWithTextButtonLink {
   text-decoration: none;
@@ -301,6 +306,19 @@ html {
 .imagesAndTextSection .imagesWithTextTextDiv .imageWithTextButtonDiv .imageWithTextButtonLink button:hover {
   background: var(--less-transparent-bg-color);
   border: solid 2px var(--less-transparent-bg-color);
+}
+.imagesAndTextSection .imagesWithTextTextDiv .imageWithTextTextBackgroundDiv {
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+.imagesAndTextSection .imagesWithTextTextDiv .imageWithTextTextBackgroundDiv .imageWithTextTextBackgroundImg {
+  position: absolute;
+  height: 100%;
+  z-index: 1;
+  filter: contrast(200%) opacity(25%);
 }
 @media screen and (max-width: 900px) {
   .imagesAndTextSection .imagesWithTextTextDiv {

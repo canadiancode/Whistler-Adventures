@@ -226,28 +226,32 @@ var imagesWithTextVariables = [{
   heading: 'Skiing',
   subText: 'Get guided by our experienced riders to find the best powder on the both Whistler and Blackcomb!',
   CTAtext: 'Book Now!',
-  CTAlink: '/#'
+  CTAlink: '/#',
+  TextBackgroundURL: 'https://cdn.shopify.com/s/files/1/0655/0051/2490/files/kisspng-ski-poles-freestyle-skiing-sticker-clip-art-acrobat-5b4a91ebecc5e8.5227950715316136759698.png?v=1665639366'
 }, {
   imageURL: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/pexels-visit-almaty-848612.jpg?v=1665206520',
   imageAltText: '3 snowboarders going up to the mountain',
   heading: 'Snowboarding',
   subText: 'Get quick access to teh lift, and skip the lines to get the most out of your time in Whistler!',
   CTAtext: 'Book Now!',
-  CTAlink: '/#'
+  CTAlink: '/#',
+  TextBackgroundURL: 'https://cdn.shopify.com/s/files/1/0655/0051/2490/files/kisspng-snowboarding-silhouette-skiing-5b0a79f5022ed7.458272691527413237009.png?v=1665639342'
 }, {
   imageURL: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/pexels-irene-lasus-90454.jpg?v=1665206608',
   imageAltText: 'Person mountain biking down a trail in Whistler',
   heading: 'Mountain Biking',
   subText: 'Find the best trails for your skill level in the Whistler Bike Park as well as the surrounding trails!',
   CTAtext: 'Book Now!',
-  CTAlink: '/#'
+  CTAlink: '/#',
+  TextBackgroundURL: 'https://cdn.shopify.com/s/files/1/0655/0051/2490/files/kisspng-mountain-bike-bicycle-cycling-silhouette-bmx-5abf773ddaa216.1716471015224973418955.png?v=1665639396'
 }, {
   imageURL: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/pexels-eric-sanman-1365425.jpg?v=1665206645',
   imageAltText: '3 people hiking up a mountain with lots of gear',
   heading: 'Hiking',
   subText: 'Experience the beautiful scenery that Whistler has to offer following our experienced tour guides!',
   CTAtext: 'Book Now!',
-  CTAlink: '/#'
+  CTAlink: '/#',
+  TextBackgroundURL: 'https://cdn.shopify.com/s/files/1/0655/0051/2490/files/kisspng-hiking-mountaineering-clip-art-hiking-5abe0d0db76dc9.2416775215224046217513.png?v=1665639418'
 }]; // Images with text DOM output
 
 var imageWithTextSectionContainer = document.querySelector('.imagesAndTextSection');
@@ -287,7 +291,15 @@ imagesWithTextVariables.forEach(function (section) {
   imagesWithTextTextDiv.appendChild(imageWithTextButtonDiv);
   imagesWithTextDivEachItem.appendChild(imagesWithTextImgDiv);
   imagesWithTextDivEachItem.appendChild(imagesWithTextTextDiv);
-  imageWithTextSectionContainer.appendChild(imagesWithTextDivEachItem);
+  imageWithTextSectionContainer.appendChild(imagesWithTextDivEachItem); // text background black image
+
+  var imageWithTextTextBackgroundDiv = document.createElement('div');
+  imageWithTextTextBackgroundDiv.classList.add('imageWithTextTextBackgroundDiv');
+  var imageWithTextTextBackgroundImg = document.createElement('img');
+  imageWithTextTextBackgroundImg.classList.add('imageWithTextTextBackgroundImg');
+  imageWithTextTextBackgroundImg.src = section.TextBackgroundURL;
+  imageWithTextTextBackgroundDiv.appendChild(imageWithTextTextBackgroundImg);
+  imagesWithTextTextDiv.appendChild(imageWithTextTextBackgroundDiv);
 });
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -317,7 +329,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50524" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54911" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
