@@ -300,7 +300,31 @@ imagesWithTextVariables.forEach(function (section) {
   imageWithTextTextBackgroundImg.src = section.TextBackgroundURL;
   imageWithTextTextBackgroundDiv.appendChild(imageWithTextTextBackgroundImg);
   imagesWithTextTextDiv.appendChild(imageWithTextTextBackgroundDiv);
+}); // Pop-up animation on page load for image with text section
+
+var imageWithTextObserver = new IntersectionObserver(function (entries) {
+  entries.forEach(function (entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    } else {
+      entry.target.classList.remove('show');
+    }
+  });
 });
+var imageWithTexthiddenElements = document.querySelectorAll('.imageWithTextTextBackgroundImg');
+imageWithTexthiddenElements.forEach(function (el) {
+  return imageWithTextObserver.observe(el);
+}); // image with text mountain ending SVG file
+
+var pageBreak = document.querySelector('.page-break');
+var imageWithTextMountainsSVG = document.createElement('svg');
+imageWithTextMountainsSVG.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+imageWithTextMountainsSVG.setAttribute("viewBox", "0 0 1440 320");
+var imageWithTextMountainsPath = document.createElement('path');
+imageWithTextMountainsPath.style.fill = '#1d1d1b';
+imageWithTextMountainsPath.style.fillOpacity = '1';
+imageWithTextMountainsPath.setAttribute("d", "M0,224L240,160L480,256L720,128L960,192L1200,96L1440,192L1440,0L1200,0L960,0L720,0L480,0L240,0L0,0Z");
+imageWithTextMountainsSVG.appendChild(imageWithTextMountainsPath); // imageWithTextSectionContainer.appendChild(imageWithTextMountainsSVG);
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -329,7 +353,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54911" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64725" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

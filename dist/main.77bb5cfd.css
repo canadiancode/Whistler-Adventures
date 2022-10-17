@@ -188,7 +188,7 @@ html {
 /* Images with text --Section */
 .imagesAndTextSection {
   width: 100%;
-  height: 100vh;
+  height: auto;
   margin: 0;
   padding: 0;
   box-shadow: 0px 0px 20px 20px var(--dark-background-color);
@@ -232,6 +232,7 @@ html {
 .imagesAndTextSection .imagesWithTextDivEachItem .imagesWithTextImgDiv {
   width: 50%;
   height: auto;
+  z-index: 3;
 }
 @media screen and (max-width: 900px) {
   .imagesAndTextSection .imagesWithTextDivEachItem .imagesWithTextImgDiv {
@@ -244,6 +245,7 @@ html {
   transform: scale(80%);
   box-shadow: 0px 0px 20px 5px var(--accent-bg-color);
   transition: var(--transition-duration);
+  z-index: 5;
 }
 @media screen and (width: 900px) {
   .imagesAndTextSection .imagesWithTextDivEachItem .imagesWithTextImgEl {
@@ -318,7 +320,13 @@ html {
   position: absolute;
   height: 100%;
   z-index: 1;
+  transition: 3s;
+  filter: contrast(0%) opacity(0%);
+  transform: translateY(4em);
+}
+.imagesAndTextSection .imagesWithTextTextDiv .imageWithTextTextBackgroundDiv .show {
   filter: contrast(200%) opacity(25%);
+  transform: translateY(0em);
 }
 @media screen and (max-width: 900px) {
   .imagesAndTextSection .imagesWithTextTextDiv {

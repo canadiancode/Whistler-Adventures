@@ -220,3 +220,28 @@ imageWithTextTextBackgroundDiv.appendChild(imageWithTextTextBackgroundImg);
 imagesWithTextTextDiv.appendChild(imageWithTextTextBackgroundDiv);
 });
 
+// Pop-up animation on page load for image with text section
+const imageWithTextObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        } else {
+            entry.target.classList.remove('show');
+        }
+    });
+});
+const imageWithTexthiddenElements = document.querySelectorAll('.imageWithTextTextBackgroundImg');
+imageWithTexthiddenElements.forEach((el) => imageWithTextObserver.observe(el));
+
+
+// image with text mountain ending SVG file
+const pageBreak = document.querySelector('.page-break');
+const imageWithTextMountainsSVG = document.createElement('svg');
+imageWithTextMountainsSVG.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+imageWithTextMountainsSVG.setAttribute("viewBox", "0 0 1440 320");
+const imageWithTextMountainsPath = document.createElement('path');
+imageWithTextMountainsPath.style.fill = '#1d1d1b';
+imageWithTextMountainsPath.style.fillOpacity = '1';
+imageWithTextMountainsPath.setAttribute("d", "M0,224L240,160L480,256L720,128L960,192L1200,96L1440,192L1440,0L1200,0L960,0L720,0L480,0L240,0L0,0Z");
+imageWithTextMountainsSVG.appendChild(imageWithTextMountainsPath);
+// imageWithTextSectionContainer.appendChild(imageWithTextMountainsSVG);
