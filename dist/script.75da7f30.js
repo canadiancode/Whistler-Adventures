@@ -314,17 +314,44 @@ var imageWithTextObserver = new IntersectionObserver(function (entries) {
 var imageWithTexthiddenElements = document.querySelectorAll('.imageWithTextTextBackgroundImg');
 imageWithTexthiddenElements.forEach(function (el) {
   return imageWithTextObserver.observe(el);
-}); // image with text mountain ending SVG file
+}); // video with text overlay --Section
+//variables 
 
-var pageBreak = document.querySelector('.page-break');
-var imageWithTextMountainsSVG = document.createElement('svg');
-imageWithTextMountainsSVG.setAttribute("xmlns", "http://www.w3.org/2000/svg");
-imageWithTextMountainsSVG.setAttribute("viewBox", "0 0 1440 320");
-var imageWithTextMountainsPath = document.createElement('path');
-imageWithTextMountainsPath.style.fill = '#1d1d1b';
-imageWithTextMountainsPath.style.fillOpacity = '1';
-imageWithTextMountainsPath.setAttribute("d", "M0,224L240,160L480,256L720,128L960,192L1200,96L1440,192L1440,0L1200,0L960,0L720,0L480,0L240,0L0,0Z");
-imageWithTextMountainsSVG.appendChild(imageWithTextMountainsPath); // imageWithTextSectionContainer.appendChild(imageWithTextMountainsSVG);
+var videoWithTextOverlayVariables = [{
+  heading: 'About Us',
+  mainCotent: 'Whistler Adventures is set up to make booking your activities in Whistler as easy as possible. We live here, and we’ve seen how hard it can be to decide where to book your experiences. We’ve brought all the top tour operators together onto this one website to make your life easier.',
+  postContent: 'Adventure with the local experts that can provide you the goods!',
+  videoURL: 'https://cdn.shopify.com/videos/c/o/v/aa752fa77a1a40efa3af5220cd230e7f.mp4',
+  videoAltText: 'people skiing, snowboard, mountain biking, and hiking.'
+}, {
+  buttonOneText: '',
+  buttonOneURL: '',
+  buttonTwoText: '',
+  buttonTwoURL: '',
+  buttonThreeText: '',
+  buttonThreeURL: '',
+  buttonFourText: '',
+  buttonFourURL: ''
+}];
+var videoWithTextOverlayContainer = document.querySelector('.videoTextOverlaySection'); //video background section
+
+var videoWithTextOverlayVideoDiv = document.createElement('div');
+videoWithTextOverlayVideoDiv.classList.add('videoWithTextOverlayVideoDiv');
+var videoWithTextOverlayVideoEl = document.createElement('video');
+videoWithTextOverlayVideoEl.classList.add('videoWithTextOverlayVideoEl');
+var videoWithTextOverlayVideoSrc = document.createElement('source');
+videoWithTextOverlayVideoSrc.classList.add('videoWithTextOverlayVideoSrc');
+videoWithTextOverlayVideoSrc.src = videoWithTextOverlayVariables[0].videoURL;
+videoWithTextOverlayVideoEl.muted = true;
+videoWithTextOverlayVideoEl.loop = true;
+videoWithTextOverlayVideoEl.autoplay = true;
+videoWithTextOverlayVideoEl.appendChild(videoWithTextOverlayVideoSrc);
+videoWithTextOverlayVideoDiv.appendChild(videoWithTextOverlayVideoEl);
+videoWithTextOverlayContainer.appendChild(videoWithTextOverlayVideoDiv); //mountain svg divider
+
+var videoWithTextOverlayDividerDiv = document.createElement('div');
+videoWithTextOverlayDividerDiv.classList.add('videoWithTextOverlayDividerDiv');
+videoWithTextOverlayContainer.appendChild(videoWithTextOverlayDividerDiv);
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -353,7 +380,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64725" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56404" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

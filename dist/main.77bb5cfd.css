@@ -192,11 +192,11 @@ html {
   margin: 0;
   padding: 0;
   box-shadow: 0px 0px 20px 20px var(--dark-background-color);
+  background-color: var(--dark-background-color);
 }
 @media screen and (max-width: 900px) {
   .imagesAndTextSection {
     padding-bottom: 5em;
-    margin-bottom: 5em;
   }
 }
 .imagesAndTextSection .imagesWithTextDivEachItem {
@@ -343,6 +343,33 @@ html {
   .imagesAndTextSection .imagesWithTextTextDiv .imagesWithTextTextPar {
     padding: 1em 4em;
   }
+}
+
+.videoTextOverlaySection {
+  height: auto;
+  width: 100%;
+}
+.videoTextOverlaySection .videoTextOverlaySVG {
+  position: absolute;
+  z-index: 2;
+  transform: translateY(-3em);
+}
+.videoTextOverlaySection .videoWithTextOverlayVideoDiv {
+  width: 100%;
+  height: auto;
+  position: relative;
+  margin-top: 2em;
+}
+.videoTextOverlaySection .videoWithTextOverlayVideoDiv .videoWithTextOverlayVideoEl {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  right: 0;
+  filter: brightness(15%);
+}
+.videoTextOverlaySection .videoWithTextOverlayVideoDiv .videoWithTextOverlayVideoEl .videoWithTextOverlayVideoSrc {
+  width: 100%;
+  height: 100%;
 }
 
 /*# sourceMappingURL=/main.77bb5cfd.css.map */
