@@ -323,17 +323,23 @@ var videoWithTextOverlayVariables = [{
   postContent: 'Adventure with the local experts that can provide you the goods!',
   videoURL: 'https://cdn.shopify.com/videos/c/o/v/aa752fa77a1a40efa3af5220cd230e7f.mp4',
   videoAltText: 'people skiing, snowboard, mountain biking, and hiking.'
-}, {
-  buttonOneText: '',
-  buttonOneURL: '',
-  buttonTwoText: '',
-  buttonTwoURL: '',
-  buttonThreeText: '',
-  buttonThreeURL: '',
-  buttonFourText: '',
-  buttonFourURL: ''
 }];
-var videoWithTextOverlayContainer = document.querySelector('.videoTextOverlaySection'); //video background section
+var videoWithTextOverlayButtonVariables = [{
+  buttonText: 'Family Adventures',
+  buttonURL: '#'
+}, {
+  buttonText: 'Business Trips',
+  buttonURL: '#'
+}, {
+  buttonText: 'Celebration & Parties',
+  buttonURL: '#'
+}, {
+  buttonText: 'Special Events',
+  buttonURL: '#'
+}];
+var videoWithTextOverlayContainer = document.querySelector('.videoTextOverlaySection'); //mountain svg divider
+
+videoWithTextOverlayContainer.innerHTML += "\n<svg class=\"videoTextOverlaySVG\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1440 320\">\n    <path fill=\"#1d1d1b\" fill-opacity=\"1\" d=\"M0,224L240,160L480,256L720,128L960,192L1200,96L1440,192L1440,0L1200,0L960,0L720,0L480,0L240,0L0,0Z\"></path>\n</svg>\n"; //video background section
 
 var videoWithTextOverlayVideoDiv = document.createElement('div');
 videoWithTextOverlayVideoDiv.classList.add('videoWithTextOverlayVideoDiv');
@@ -347,11 +353,40 @@ videoWithTextOverlayVideoEl.loop = true;
 videoWithTextOverlayVideoEl.autoplay = true;
 videoWithTextOverlayVideoEl.appendChild(videoWithTextOverlayVideoSrc);
 videoWithTextOverlayVideoDiv.appendChild(videoWithTextOverlayVideoEl);
-videoWithTextOverlayContainer.appendChild(videoWithTextOverlayVideoDiv); //mountain svg divider
+videoWithTextOverlayContainer.appendChild(videoWithTextOverlayVideoDiv); //the text
 
-var videoWithTextOverlayDividerDiv = document.createElement('div');
-videoWithTextOverlayDividerDiv.classList.add('videoWithTextOverlayDividerDiv');
-videoWithTextOverlayContainer.appendChild(videoWithTextOverlayDividerDiv);
+var videoWithTextOverlayTextButtonDiv = document.createElement('div');
+videoWithTextOverlayTextButtonDiv.classList.add('videoWithTextOverlayTextDiv');
+var videoWithTextOverlayHeadingEl = document.createElement('h2');
+videoWithTextOverlayHeadingEl.classList.add('videoWithTextOverlayHeadingEl');
+videoWithTextOverlayHeadingEl.appendChild(document.createTextNode(videoWithTextOverlayVariables[0].heading));
+videoWithTextOverlayTextButtonDiv.appendChild(videoWithTextOverlayHeadingEl);
+var videoWithTextOverlayMainTextEl = document.createElement('p');
+videoWithTextOverlayMainTextEl.classList.add('videoWithTextOverlayMainTextEl');
+videoWithTextOverlayMainTextEl.appendChild(document.createTextNode(videoWithTextOverlayVariables[0].mainCotent));
+videoWithTextOverlayTextButtonDiv.appendChild(videoWithTextOverlayMainTextEl);
+var videoWithTextOverlaySubTextEl = document.createElement('p');
+videoWithTextOverlaySubTextEl.classList.add('videoWithTextOverlaySubTextEl');
+videoWithTextOverlaySubTextEl.appendChild(document.createTextNode(videoWithTextOverlayVariables[0].postContent));
+videoWithTextOverlayTextButtonDiv.appendChild(videoWithTextOverlaySubTextEl);
+videoWithTextOverlayContainer.appendChild(videoWithTextOverlayTextButtonDiv); // the buttons
+
+var videoWithTextOverlayButtonDivs = document.createElement('div');
+videoWithTextOverlayButtonDivs.classList.add('videoWithTextOverlayButtonDiv');
+videoWithTextOverlayTextButtonDiv.appendChild(videoWithTextOverlayButtonDivs);
+var buttonDiv = document.createElement('div');
+buttonDiv.classList.add('videoWithTextOverlayButtonDiv');
+videoWithTextOverlayButtonVariables.forEach(function (button) {
+  var buttonLinkEl = document.createElement('a');
+  buttonLinkEl.classList.add('videoWithTextOverlayButtonEl');
+  buttonLinkEl.href = button.buttonURL;
+  var buttonEl = document.createElement('button');
+  buttonEl.classList.add('videoWithTextOverlayButton');
+  buttonEl.appendChild(document.createTextNode(button.buttonText));
+  buttonLinkEl.appendChild(buttonEl);
+  buttonDiv.appendChild(buttonLinkEl);
+  videoWithTextOverlayTextButtonDiv.appendChild(buttonDiv);
+});
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -380,7 +415,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56404" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54072" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

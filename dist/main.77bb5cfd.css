@@ -32,7 +32,7 @@ html {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   grid-gap: 4em;
-  top: 30%;
+  top: 25%;
   z-index: 5;
 }
 @media screen and (max-width: 900px) {
@@ -212,7 +212,7 @@ html {
     flex-direction: row-reverse;
   }
   .imagesAndTextSection .imagesWithTextDivEachItem:nth-child(even) .imagesWithTextTextDiv {
-    padding-left: 10em;
+    padding-left: 6em;
   }
   .imagesAndTextSection .imagesWithTextDivEachItem:nth-child(even) .imagesWithTextImgDiv {
     transform: translateX(-3em);
@@ -232,11 +232,11 @@ html {
 .imagesAndTextSection .imagesWithTextDivEachItem .imagesWithTextImgDiv {
   width: 50%;
   height: auto;
-  z-index: 3;
+  z-index: 6;
 }
 @media screen and (max-width: 900px) {
   .imagesAndTextSection .imagesWithTextDivEachItem .imagesWithTextImgDiv {
-    width: 80%;
+    width: 100%;
   }
 }
 .imagesAndTextSection .imagesWithTextDivEachItem .imagesWithTextImgEl {
@@ -264,6 +264,7 @@ html {
   text-align: left;
   background-color: var(--dark-background-color);
   position: relative;
+  z-index: 3;
 }
 .imagesAndTextSection .imagesWithTextTextDiv h2, .imagesAndTextSection .imagesWithTextTextDiv p {
   color: var(--light-text-color);
@@ -346,30 +347,133 @@ html {
 }
 
 .videoTextOverlaySection {
-  height: auto;
+  height: 100%;
   width: 100%;
+  position: relative;
+}
+@media only screen and (max-width: 900px) {
+  .videoTextOverlaySection {
+    height: 100%;
+    width: auto;
+  }
 }
 .videoTextOverlaySection .videoTextOverlaySVG {
   position: absolute;
-  z-index: 2;
+  z-index: 1;
   transform: translateY(-3em);
+}
+@media only screen and (max-width: 600px) {
+  .videoTextOverlaySection .videoTextOverlaySVG {
+    transform: translateY(-1em);
+  }
 }
 .videoTextOverlaySection .videoWithTextOverlayVideoDiv {
   width: 100%;
-  height: auto;
+  height: 100%;
   position: relative;
-  margin-top: 2em;
+}
+@media only screen and (max-width: 900px) {
+  .videoTextOverlaySection .videoWithTextOverlayVideoDiv {
+    width: auto;
+    height: 110%;
+  }
+}
+@media only screen and (max-width: 570px) {
+  .videoTextOverlaySection .videoWithTextOverlayVideoDiv {
+    width: auto;
+    height: 130%;
+  }
 }
 .videoTextOverlaySection .videoWithTextOverlayVideoDiv .videoWithTextOverlayVideoEl {
   position: absolute;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   right: 0;
   filter: brightness(15%);
+}
+@media only screen and (max-width: 900px) {
+  .videoTextOverlaySection .videoWithTextOverlayVideoDiv .videoWithTextOverlayVideoEl {
+    width: auto;
+    height: 100%;
+  }
 }
 .videoTextOverlaySection .videoWithTextOverlayVideoDiv .videoWithTextOverlayVideoEl .videoWithTextOverlayVideoSrc {
   width: 100%;
   height: 100%;
+}
+.videoTextOverlaySection .videoWithTextOverlayTextDiv {
+  z-index: 5;
+  width: 100%;
+  height: auto;
+  top: 20%;
+  position: absolute;
+  display: grid;
+  justify-items: center;
+}
+@media only screen and (max-width: 900px) {
+  .videoTextOverlaySection .videoWithTextOverlayTextDiv {
+    top: 10%;
+  }
+}
+.videoTextOverlaySection .videoWithTextOverlayTextDiv h2, .videoTextOverlaySection .videoWithTextOverlayTextDiv p {
+  color: var(--light-text-color);
+  z-index: 5;
+  max-width: 71%;
+  text-align: center;
+  margin-top: 4%;
+  text-shadow: 2px 2px 4px var(--accent-text-color);
+  font-size: 1.5em;
+  line-height: 2em;
+}
+.videoTextOverlaySection .videoWithTextOverlayTextDiv .videoWithTextOverlayHeadingEl {
+  font-size: 3em;
+  position: relative;
+}
+.videoTextOverlaySection .videoWithTextOverlayTextDiv .videoWithTextOverlayHeadingEl:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--accent-bg-color);
+}
+.videoTextOverlaySection .videoWithTextOverlayTextDiv .videoWithTextOverlaySubTextEl {
+  padding-bottom: 2.2em;
+}
+.videoTextOverlaySection .videoWithTextOverlayTextDiv .videoWithTextOverlayButtonDiv {
+  display: grid;
+  grid-gap: 1em;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+  justify-items: center;
+  max-width: 70%;
+}
+@media screen and (max-width: 1000px) {
+  .videoTextOverlaySection .videoWithTextOverlayTextDiv .videoWithTextOverlayButtonDiv {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 90%;
+  }
+}
+.videoTextOverlaySection .videoWithTextOverlayTextDiv .videoWithTextOverlayButtonDiv .videoWithTextOverlayButtonEl {
+  text-decoration: none;
+}
+.videoTextOverlaySection .videoWithTextOverlayTextDiv .videoWithTextOverlayButtonDiv .videoWithTextOverlayButtonEl .videoWithTextOverlayButton {
+  width: 150px;
+  text-decoration: none;
+  padding: 1em 2em;
+  background: var(--more-transparent-bg-color);
+  color: var(--light-text-color);
+  font-weight: bolder;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  border: solid 2px var(--light-background-color);
+  transition: var(--transition-duration);
+}
+.videoTextOverlaySection .videoWithTextOverlayTextDiv .videoWithTextOverlayButtonDiv .videoWithTextOverlayButtonEl .videoWithTextOverlayButton:hover {
+  background: var(--less-transparent-bg-color);
+  border: solid 2px var(--less-transparent-bg-color);
 }
 
 /*# sourceMappingURL=/main.77bb5cfd.css.map */

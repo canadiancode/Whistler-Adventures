@@ -243,20 +243,35 @@ const videoWithTextOverlayVariables = [
         postContent: 'Adventure with the local experts that can provide you the goods!',
         videoURL: 'https://cdn.shopify.com/videos/c/o/v/aa752fa77a1a40efa3af5220cd230e7f.mp4',
         videoAltText: 'people skiing, snowboard, mountain biking, and hiking.'
-    }, 
-    {
-        buttonOneText: '',
-        buttonOneURL: '',
-        buttonTwoText: '',
-        buttonTwoURL: '',
-        buttonThreeText: '',
-        buttonThreeURL: '',
-        buttonFourText: '',
-        buttonFourURL: ''
     }
 ];
+const videoWithTextOverlayButtonVariables = [
+    {
+        buttonText: 'Family Adventures',
+        buttonURL: '#'
+    }, 
+    {
+        buttonText: 'Business Trips',
+        buttonURL: '#',
+    },
+    {
+        buttonText: 'Celebration & Parties',
+        buttonURL: '#',
+    },
+    {
+        buttonText: 'Special Events',
+        buttonURL: '#'
+    }
+]
 
 const videoWithTextOverlayContainer = document.querySelector('.videoTextOverlaySection');
+
+//mountain svg divider
+videoWithTextOverlayContainer.innerHTML += `
+<svg class="videoTextOverlaySVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <path fill="#1d1d1b" fill-opacity="1" d="M0,224L240,160L480,256L720,128L960,192L1200,96L1440,192L1440,0L1200,0L960,0L720,0L480,0L240,0L0,0Z"></path>
+</svg>
+`;
 
 //video background section
 const videoWithTextOverlayVideoDiv = document.createElement('div');
@@ -273,10 +288,42 @@ videoWithTextOverlayVideoEl.appendChild(videoWithTextOverlayVideoSrc);
 videoWithTextOverlayVideoDiv.appendChild(videoWithTextOverlayVideoEl);
 videoWithTextOverlayContainer.appendChild(videoWithTextOverlayVideoDiv);
 
-//mountain svg divider
-const videoWithTextOverlayDividerDiv = document.createElement('div');
-videoWithTextOverlayDividerDiv.classList.add('videoWithTextOverlayDividerDiv');
+//the text
+const videoWithTextOverlayTextButtonDiv = document.createElement('div');
+videoWithTextOverlayTextButtonDiv.classList.add('videoWithTextOverlayTextDiv');
 
+const videoWithTextOverlayHeadingEl = document.createElement('h2');
+videoWithTextOverlayHeadingEl.classList.add('videoWithTextOverlayHeadingEl');
+videoWithTextOverlayHeadingEl.appendChild(document.createTextNode(videoWithTextOverlayVariables[0].heading));
+videoWithTextOverlayTextButtonDiv.appendChild(videoWithTextOverlayHeadingEl);
+const videoWithTextOverlayMainTextEl = document.createElement('p');
+videoWithTextOverlayMainTextEl.classList.add('videoWithTextOverlayMainTextEl');
+videoWithTextOverlayMainTextEl.appendChild(document.createTextNode(videoWithTextOverlayVariables[0].mainCotent));
+videoWithTextOverlayTextButtonDiv.appendChild(videoWithTextOverlayMainTextEl);
 
+const videoWithTextOverlaySubTextEl = document.createElement('p');
+videoWithTextOverlaySubTextEl.classList.add('videoWithTextOverlaySubTextEl');
+videoWithTextOverlaySubTextEl.appendChild(document.createTextNode(videoWithTextOverlayVariables[0].postContent));
+videoWithTextOverlayTextButtonDiv.appendChild(videoWithTextOverlaySubTextEl);
+videoWithTextOverlayContainer.appendChild(videoWithTextOverlayTextButtonDiv);
 
-videoWithTextOverlayContainer.appendChild(videoWithTextOverlayDividerDiv);
+// the buttons
+const videoWithTextOverlayButtonDivs = document.createElement('div');
+videoWithTextOverlayButtonDivs.classList.add('videoWithTextOverlayButtonDiv');
+videoWithTextOverlayTextButtonDiv.appendChild(videoWithTextOverlayButtonDivs);
+
+const buttonDiv = document.createElement('div');
+buttonDiv.classList.add('videoWithTextOverlayButtonDiv');
+videoWithTextOverlayButtonVariables.forEach(button => {
+    const buttonLinkEl = document.createElement('a');
+    buttonLinkEl.classList.add('videoWithTextOverlayButtonEl');
+    buttonLinkEl.href = button.buttonURL;
+
+    const buttonEl = document.createElement('button');
+    buttonEl.classList.add('videoWithTextOverlayButton');
+    buttonEl.appendChild(document.createTextNode(button.buttonText));
+
+    buttonLinkEl.appendChild(buttonEl);
+    buttonDiv.appendChild(buttonLinkEl);
+    videoWithTextOverlayTextButtonDiv.appendChild(buttonDiv);
+});
