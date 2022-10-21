@@ -1,10 +1,5 @@
 // header --Section
 // header variables
-const headerLogoSrc = '/Images/Whistler Bungee.png'
-const headerLogoAlt = 'Whistler Adventures Logo';
-const headerBusinessName = 'Whistler Adventures';
-const headerMobileBackgroundSrc = '/Images/whistler village at night.jpg';
-const headerMobileBackgroundAlt = 'Mountain with a lake and forest';
 const headerNavItems = [
     {
         item: 'Adventures',
@@ -57,7 +52,6 @@ const heroSectionText = [
         postText: 'has to offer!',
         CTAtext: 'Book Now',
         CTAlink: '#'
-
     }
 ];
 
@@ -327,3 +321,99 @@ videoWithTextOverlayButtonVariables.forEach(button => {
     buttonDiv.appendChild(buttonLinkEl);
     videoWithTextOverlayTextButtonDiv.appendChild(buttonDiv);
 });
+
+
+// Contact Us --Section
+const contactUsVariables = [
+    {
+        header: 'Have Questions?',
+        paragraph: `If the FAQ section below doesn't answer your question, please fill out our contact form to get in touch!`
+    }
+];
+const contactUsFAQvariables = [
+    {
+        question: 'Do you offer refunds?',
+        answer: 'We offer refunds if the cancellation is 30 days away from the date of the booking.'
+    },
+    {
+        question: 'Can you guarantee that the snow will be amazing?',
+        answer: 'We cannot guarantee that the conditions will be perfect.'
+    },
+    {
+        question: 'Do we get to skip the lines with these experiences?',
+        answer: 'We have partnered with Whistler and Blackcomb, so you will be able to skip the lines!'
+    },
+    {
+        question: 'What skill level do I have to be to enjoy my time?',
+        answer: `We offer adventures for any skill level - from beginner to expert, we'll make sure you have a blast no matter what your skill level!`
+    }
+];
+
+// contact us section output to DOM
+
+const contactUsContainer = document.querySelector('.contactUsSection');
+
+    // info input side
+const contactUsInputDiv = document.createElement('div');
+contactUsInputDiv.classList.add('contactUsInputDiv');
+
+    // first name + last name
+const contactUsNameDiv = document.createElement('div');
+contactUsNameDiv.classList.add('contactUsNameDiv');
+
+    // first name
+const contactUSFirstNameLabel = document.createElement('label');
+contactUSFirstNameLabel.classList.add('contactUSFirstNameLabel');
+contactUSFirstNameLabel.appendChild(document.createTextNode('First Name:'));
+const contactUSFirstName = document.createElement('input');
+contactUSFirstName.classList.add('contactUSFirstName');
+contactUSFirstName.type = 'text';
+contactUSFirstName.required = true;
+contactUSFirstNameLabel.appendChild(contactUSFirstName);
+contactUsNameDiv.appendChild(contactUSFirstNameLabel);
+
+    // last name 
+const contactUsLastNameLabel = document.createElement('label');
+contactUsLastNameLabel.classList.add('contactUsLastNameLabel');
+contactUsLastNameLabel.appendChild(document.createTextNode('Last Name:'));
+const contactUsLastName = document.createElement('input');
+contactUsLastName.classList.add('contactUsLastName');
+contactUsLastName.type = 'text';
+contactUsLastName.required = true;
+contactUsLastNameLabel.appendChild(contactUsLastName);
+contactUsNameDiv.appendChild(contactUsLastNameLabel);
+contactUsInputDiv.appendChild(contactUsNameDiv)
+
+    // email
+const contactUsEmailLabel = document.createElement('label')
+contactUsEmailLabel.classList.add('contactUsEmailLabel');
+contactUsEmailLabel.appendChild(document.createTextNode('Email:'));
+const contactUsEmail = document.createElement('input');
+contactUsEmail.classList.add('contactUsEmail');
+contactUsEmail.type = 'email';
+contactUsEmail.required = true;
+contactUsEmailLabel.appendChild(contactUsEmail);
+contactUsInputDiv.appendChild(contactUsEmailLabel);
+
+    // message
+const contactUsMessageLabel = document.createElement('label');
+contactUsMessageLabel.classList.add('contactUsMessageLabel');
+contactUsMessageLabel.appendChild(document.createTextNode('Message:'));
+const contactUsMessage = document.createElement('textarea');
+contactUsMessage.classList.add('contactUsMessage');
+contactUsMessage.type = 'text';
+contactUsMessage.required = true;
+contactUsMessageLabel.appendChild(contactUsMessage);
+contactUsInputDiv.appendChild(contactUsMessageLabel);
+
+    // send message button
+const contactUsButton = document.createElement('button');
+contactUsButton.classList.add('contactUsButton');
+contactUsButton.appendChild(document.createTextNode('Send Message'));
+contactUsInputDiv.appendChild(contactUsButton);
+
+contactUsContainer.appendChild(contactUsInputDiv);
+
+// text and FAQ drop-down section
+const contactUsFAQDiv = document.createElement('div');
+contactUsFAQDiv.classList.add('contactUsFAQDiv');
