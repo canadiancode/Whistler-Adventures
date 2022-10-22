@@ -15,7 +15,8 @@ html {
   --accent-bg-color: #27b5bd;
   --more-transparent-bg-color: rgba(39, 181, 189, 0.4);
   --less-transparent-bg-color: rgba(39, 181, 189, 0.9);
-  --box-shadow: 1px 1px 15px 8px #1d1d1b;
+  --box-shadow: 0px 0px 15px -2px #27b5bd;
+  --box-shadow-hover: 0px 0px 15px 2px #27b5bd;
   --light-text-color: #fcf6eb;
   --dark-text-color: #1d1d1b;
   --accent-text-color: #27b5bd;
@@ -219,7 +220,7 @@ html {
   }
 }
 .imagesAndTextSection .imagesWithTextDivEachItem:hover .imagesWithTextImgEl {
-  box-shadow: 0px 0px 0px 8px var(--accent-bg-color);
+  box-shadow: var(--box-shadow-hover);
 }
 @media screen and (max-width: 900px) {
   .imagesAndTextSection .imagesWithTextDivEachItem {
@@ -243,7 +244,7 @@ html {
   height: auto;
   width: 100%;
   transform: scale(80%);
-  box-shadow: 0px 0px 20px 5px var(--accent-bg-color);
+  box-shadow: var(--box-shadow);
   transition: var(--transition-duration);
   z-index: 5;
 }
@@ -345,15 +346,38 @@ html {
     padding: 1em 4em;
   }
 }
+@media screen and (max-width: 500px) {
+  .imagesAndTextSection .imagesWithTextTextDiv .imagesWithTextTextPar {
+    padding: 1em 2em;
+  }
+}
 
 .videoTextOverlaySection {
-  height: 100%;
+  height: 55em;
   width: 100%;
   position: relative;
 }
 @media only screen and (max-width: 900px) {
   .videoTextOverlaySection {
-    height: 100%;
+    height: 60em;
+    width: auto;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .videoTextOverlaySection {
+    height: 65em;
+    width: auto;
+  }
+}
+@media only screen and (max-width: 440px) {
+  .videoTextOverlaySection {
+    height: 70em;
+    width: auto;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .videoTextOverlaySection {
+    height: 75em;
     width: auto;
   }
 }
@@ -375,19 +399,7 @@ html {
 @media only screen and (max-width: 900px) {
   .videoTextOverlaySection .videoWithTextOverlayVideoDiv {
     width: auto;
-    height: 110%;
-  }
-}
-@media only screen and (max-width: 570px) {
-  .videoTextOverlaySection .videoWithTextOverlayVideoDiv {
-    width: auto;
-    height: 140%;
-  }
-}
-@media only screen and (max-width: 1200px) and (max-height: 820px) {
-  .videoTextOverlaySection .videoWithTextOverlayVideoDiv {
-    width: auto;
-    height: 180%;
+    height: 100%;
   }
 }
 .videoTextOverlaySection .videoWithTextOverlayVideoDiv .videoWithTextOverlayVideoEl {
@@ -417,7 +429,7 @@ html {
   display: grid;
   justify-items: center;
 }
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1000px) {
   .videoTextOverlaySection .videoWithTextOverlayTextDiv {
     top: 10%;
   }
@@ -431,6 +443,11 @@ html {
   text-shadow: 2px 2px 4px var(--accent-text-color);
   font-size: 1.5em;
   line-height: 2em;
+}
+@media only screen and (max-width: 900px) {
+  .videoTextOverlaySection .videoWithTextOverlayTextDiv h2, .videoTextOverlaySection .videoWithTextOverlayTextDiv p {
+    margin-top: 2%;
+  }
 }
 .videoTextOverlaySection .videoWithTextOverlayTextDiv .videoWithTextOverlayHeadingEl {
   font-size: 3em;
@@ -454,12 +471,18 @@ html {
   grid-template-columns: repeat(4, 1fr);
   width: 100%;
   justify-items: center;
-  max-width: 70%;
+  max-width: 80%;
 }
 @media screen and (max-width: 1000px) {
   .videoTextOverlaySection .videoWithTextOverlayTextDiv .videoWithTextOverlayButtonDiv {
     grid-template-columns: repeat(2, 1fr);
     max-width: 90%;
+  }
+}
+@media screen and (max-width: 400px) {
+  .videoTextOverlaySection .videoWithTextOverlayTextDiv .videoWithTextOverlayButtonDiv {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 100%;
   }
 }
 .videoTextOverlaySection .videoWithTextOverlayTextDiv .videoWithTextOverlayButtonDiv .videoWithTextOverlayButtonEl {
@@ -487,23 +510,82 @@ html {
   grid-gap: 1em;
   grid-template-columns: repeat(2, 1fr);
   margin: 0 auto;
+  align-content: center;
   width: 100%;
-  height: 25em;
+  height: 30em;
+  background-color: var(--dark-background-color);
+  padding: 2em 0em;
+}
+@media screen and (max-width: 900px) {
+  .contactUsSection {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 .contactUsSection label {
   margin: 1em 0em;
+  padding: 0em 1em;
+  display: flex;
+  flex-direction: column;
+  color: var(--light-text-color);
 }
 .contactUsSection .contactUsInputDiv {
   margin: 0 auto;
   display: grid;
   justify-items: center;
   align-content: center;
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius);
+  padding: 1em;
+  height: 100%;
+}
+.contactUsSection .contactUsInputDiv input {
+  height: 25px;
+}
+.contactUsSection .contactUsInputDiv input:focus {
+  border: 2px solid var(--accent-bg-color);
+  outline: var(--accent-bg-color);
+}
+.contactUsSection .contactUsInputDiv .contactUsNameDiv {
+  display: flex;
+  flex-direction: row;
+}
+.contactUsSection .contactUsInputDiv .contactUsNameDiv input {
+  width: 100%;
 }
 .contactUsSection .contactUsInputDiv .contactUsEmailLabel {
   width: 100%;
 }
+.contactUsSection .contactUsInputDiv .contactUsEmailLabel input {
+  width: 100%;
+}
 .contactUsSection .contactUsInputDiv .contactUsMessageLabel {
   width: 100%;
+}
+.contactUsSection .contactUsInputDiv .contactUsMessageLabel textarea {
+  width: 100%;
+  height: 50px;
+  resize: vertical;
+  max-height: 150px;
+}
+.contactUsSection .contactUsInputDiv .contactUsMessageLabel textarea:focus {
+  border: 2px solid var(--accent-bg-color);
+  outline: var(--accent-bg-color);
+}
+.contactUsSection .contactUsInputDiv button {
+  width: 95%;
+  text-decoration: none;
+  padding: 1em 2em;
+  background: var(--more-transparent-bg-color);
+  color: var(--light-text-color);
+  font-weight: bolder;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  border: solid 2px var(--light-background-color);
+  transition: var(--transition-duration);
+}
+.contactUsSection .contactUsInputDiv button:hover {
+  background: var(--less-transparent-bg-color);
+  border: solid 2px var(--less-transparent-bg-color);
 }
 
 /*# sourceMappingURL=/main.77bb5cfd.css.map */
