@@ -458,6 +458,65 @@ contactUsContainer.appendChild(contactUsInputDiv); // text and FAQ drop-down sec
 
 var contactUsFAQDiv = document.createElement('div');
 contactUsFAQDiv.classList.add('contactUsFAQDiv');
+contactUsContainer.appendChild(contactUsFAQDiv);
+var FAQheader = document.createElement('h3');
+FAQheader.classList.add('FAQheader');
+FAQheader.appendChild(document.createTextNode(contactUsVariables[0].header));
+contactUsFAQDiv.appendChild(FAQheader);
+var FAQpar = document.createElement('p');
+FAQpar.classList.add('FAQpar');
+FAQpar.appendChild(document.createTextNode(contactUsVariables[0].paragraph));
+contactUsFAQDiv.appendChild(FAQpar);
+contactUsFAQvariables.forEach(function (QandA) {
+  //question
+  var questionDiv = document.createElement('div');
+  questionDiv.classList.add('questionDiv');
+  var questionEl = document.createElement('p');
+  questionEl.appendChild(document.createTextNode(QandA.question));
+  questionDiv.appendChild(questionEl); //arrow to open
+
+  var openAnswerButtonEl = document.createElement('button');
+  openAnswerButtonEl.classList.add('openAnswerButtonEl');
+  openAnswerButtonEl.appendChild(document.createTextNode('▼'));
+  questionDiv.appendChild(openAnswerButtonEl);
+  contactUsFAQDiv.appendChild(questionDiv); //answer
+
+  var answerDiv = document.createElement('div');
+  answerDiv.classList.add('answerDiv');
+  var answerEl = document.createElement('p');
+  answerEl.classList.add('answerEl');
+  answerEl.appendChild(document.createTextNode(QandA.answer));
+  answerDiv.appendChild(answerEl);
+  contactUsFAQDiv.appendChild(answerDiv);
+});
+var QandAArrows = document.querySelectorAll('.openAnswerButtonEl');
+var answerDivs = document.querySelectorAll('.answerDiv');
+var questionDivs = document.querySelectorAll('.questionDiv');
+var answerElements = document.querySelectorAll('.answerEl');
+
+var _loop = function _loop(i) {
+  QandAArrows[i].addEventListener('click', function () {
+    if (answerDivs[i].style.display === 'block') {
+      answerDivs[i].style.display = 'none'; // animation
+
+      QandAArrows[i].style.transform = 'rotate(0deg)';
+      answerDivs[i].style.borderBottom = 'none';
+      questionDivs[i].style.borderBottom = 'solid 1px #27b5bd';
+      answerElements[i].style.transform = 'translateX(-2em)';
+    } else {
+      answerDivs[i].style.display = 'block'; //animation
+
+      QandAArrows[i].style.transform = 'rotate(180deg)';
+      answerDivs[i].style.borderBottom = 'solid 1px #27b5bd';
+      questionDivs[i].style.borderBottom = 'none';
+      answerElements[i].style.transform = 'translateX(0em)';
+    }
+  });
+};
+
+for (var i = 0; i < QandAArrows.length; i++) {
+  _loop(i);
+}
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -486,7 +545,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55649" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58938" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

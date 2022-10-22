@@ -492,11 +492,13 @@ html {
     margin: 0 auto;
     align-content: center;
     width: 100%;
-    height: 30em;
+    height: auto;
     background-color: var(--dark-background-color);
-    padding: 2em 0em;
+    padding: 3em 0em;
+    box-shadow: inset 0px 16px 14px -6px black;
     @media screen and (max-width: 900px) {
         grid-template-columns: repeat(1, 1fr);
+        grid-gap: 4em;
     }
     label {
         margin: 1em 0em;
@@ -540,7 +542,8 @@ html {
                 width: 100%;
                 height: 50px;
                 resize: vertical;
-                max-height: 150px;
+                max-height: 450px;
+                min-height: 100px;
                 &:focus {
                     border: 2px solid var(--accent-bg-color);
                     outline: var(--accent-bg-color);
@@ -562,6 +565,81 @@ html {
             background: var(--less-transparent-bg-color);
             border: solid 2px var(--less-transparent-bg-color);
         }
+        }
+    }
+    .contactUsFAQDiv {
+        width: 80%;
+        height: 100%;
+        margin: 0;
+        @media screen and (max-width: 900px) {
+            & {
+                margin: 0 auto;
+            }
+        }
+        h3 {
+            color: var(--light-text-color);
+            font-size: 3em;
+            padding-bottom: 0.5em;
+            text-shadow: 2px 2px 4px var(--accent-text-color);
+            @media screen and (max-width: 900px) {
+                & {
+                    margin: 0 auto;
+                    text-align: center;
+                }
+            }
+        }
+        p {
+            color: var(--light-text-color);
+            font-size: 1.2em;
+        }
+        .FAQpar {
+            padding-bottom: 1.8em;
+            @media screen and (max-width: 900px) {
+                & {
+                    margin: 0 auto;
+                    text-align: center;
+                }
+            }
+        }
+        .questionDiv {
+            display: flex;
+            justify-content: space-between;
+            margin: 0;
+            margin-bottom: 1em;
+            border-bottom: 1px solid var(--accent-bg-color);
+            height: auto;
+            min-height: 2.2em;
+            @media screen and (max-width: 900px) {
+                & {
+                    width: 100%;
+                }
+            }
+            p {
+                margin-left: 0;
+                font-weight: bold;
+            }
+            .openAnswerButtonEl {
+                width: 40px;
+                height: auto;
+                cursor: pointer;
+                margin-right: 0;
+                color: (var(--accent-text-color));
+                background: none;
+                border: none;
+                font-size: 1.3em;
+                transition-duration: var(--transition-duration);
+            }
+        }
+        .answerDiv {
+            display: none;
+            margin-bottom: 2em;
+            padding-bottom: 0.5em;
+            padding-left: 1em;
+            transition-duration: var(--transition-duration);
+            .answerEl {
+                transform: translateX(-2em);
+                transition-duration: var(--transition-duration);
+            }
         }
     }
 }

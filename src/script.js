@@ -350,7 +350,6 @@ const contactUsFAQvariables = [
 ];
 
 // contact us section output to DOM
-
 const contactUsContainer = document.querySelector('.contactUsSection');
 
     // info input side
@@ -411,9 +410,69 @@ const contactUsButton = document.createElement('button');
 contactUsButton.classList.add('contactUsButton');
 contactUsButton.appendChild(document.createTextNode('Send Message'));
 contactUsInputDiv.appendChild(contactUsButton);
-
 contactUsContainer.appendChild(contactUsInputDiv);
 
 // text and FAQ drop-down section
 const contactUsFAQDiv = document.createElement('div');
 contactUsFAQDiv.classList.add('contactUsFAQDiv');
+contactUsContainer.appendChild(contactUsFAQDiv);
+
+const FAQheader = document.createElement('h3');
+FAQheader.classList.add('FAQheader');
+FAQheader.appendChild(document.createTextNode(contactUsVariables[0].header));
+contactUsFAQDiv.appendChild(FAQheader);
+const FAQpar = document.createElement('p');
+FAQpar.classList.add('FAQpar');
+FAQpar.appendChild(document.createTextNode(contactUsVariables[0].paragraph));
+contactUsFAQDiv.appendChild(FAQpar);
+
+contactUsFAQvariables.forEach(QandA => {
+    
+    //question
+    const questionDiv = document.createElement('div');
+    questionDiv.classList.add('questionDiv');
+    const questionEl = document.createElement('p');
+    questionEl.appendChild(document.createTextNode(QandA.question));
+    questionDiv.appendChild(questionEl);
+
+    //arrow to open
+    const openAnswerButtonEl = document.createElement('button');
+    openAnswerButtonEl.classList.add('openAnswerButtonEl');
+    openAnswerButtonEl.appendChild(document.createTextNode('▼'));
+    questionDiv.appendChild(openAnswerButtonEl);
+    contactUsFAQDiv.appendChild(questionDiv);
+
+    //answer
+    const answerDiv = document.createElement('div');
+    answerDiv.classList.add('answerDiv');
+    const answerEl = document.createElement('p');
+    answerEl.classList.add('answerEl');
+    answerEl.appendChild(document.createTextNode(QandA.answer));
+    answerDiv.appendChild(answerEl);
+    contactUsFAQDiv.appendChild(answerDiv);
+});
+
+const QandAArrows = document.querySelectorAll('.openAnswerButtonEl');
+const answerDivs = document.querySelectorAll('.answerDiv');
+const questionDivs = document.querySelectorAll('.questionDiv');
+const answerElements = document.querySelectorAll('.answerEl');
+for (let i = 0; i < QandAArrows.length; i++) {
+    QandAArrows[i].addEventListener('click', () => {
+        
+        if (answerDivs[i].style.display === 'block') {
+            answerDivs[i].style.display = 'none';
+            // animation
+            QandAArrows[i].style.transform = 'rotate(0deg)';
+            answerDivs[i].style.borderBottom = 'none';
+            questionDivs[i].style.borderBottom = 'solid 1px #27b5bd';
+            answerElements[i].style.transform = 'translateX(-2em)';
+        } else {
+            answerDivs[i].style.display = 'block';
+            //animation
+            QandAArrows[i].style.transform = 'rotate(180deg)';
+            answerDivs[i].style.borderBottom = 'solid 1px #27b5bd';
+            questionDivs[i].style.borderBottom = 'none';
+            answerElements[i].style.transform = 'translateX(0em)';
+        }
+    });
+}
