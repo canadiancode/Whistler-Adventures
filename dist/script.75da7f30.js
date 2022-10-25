@@ -118,11 +118,12 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"script.js":[function(require,module,exports) {
+// Look for the id's for the scroll identifier using "--id"
 // header --Section
 // header variables
 var headerNavItems = [{
-  item: 'Adventures',
-  link: '/#adventures',
+  item: 'Book Now',
+  link: '/#bookNow',
   icon: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/icons8-national-park-64.png?v=1665121376'
 }, {
   item: 'Schedule',
@@ -171,7 +172,8 @@ var heroSectonBackground = [{
   backgroundURL: 'https://cdn.shopify.com/s/files/1/0655/0051/2490/files/5a28b836c89407.7959156615126180388216_1.png?v=1665551884'
 }]; // Hero section output to DOM
 
-var heroSectionDiv = document.querySelector('.heroSection'); // background using Parallax
+var heroSectionDiv = document.querySelector('.heroSection');
+heroSectionDiv.setAttribute('id', 'bookNow'); // background using Parallax
 
 var heroSectionBackgroundImgEl = document.createElement('img');
 heroSectionBackgroundImgEl.classList.add('heroSectionBackgroundImgEl');
@@ -250,6 +252,7 @@ var imagesWithTextVariables = [{
 }]; // Images with text DOM output
 
 var imageWithTextSectionContainer = document.querySelector('.imagesAndTextSection');
+imageWithTextSectionContainer.setAttribute('id', 'schedule');
 imagesWithTextVariables.forEach(function (section) {
   var imagesWithTextDivEachItem = document.createElement('div');
   imagesWithTextDivEachItem.classList.add('imagesWithTextDivEachItem'); // images
@@ -332,7 +335,9 @@ var videoWithTextOverlayButtonVariables = [{
   buttonText: 'Special Events',
   buttonURL: '#'
 }];
-var videoWithTextOverlayContainer = document.querySelector('.videoTextOverlaySection'); //mountain svg divider
+var videoWithTextOverlayContainer = document.querySelector('.videoTextOverlaySection');
+videoWithTextOverlayContainer.setAttribute('id', 'aboutUs'); // --id
+//mountain svg divider
 
 videoWithTextOverlayContainer.innerHTML += "\n<svg class=\"videoTextOverlaySVG\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1440 320\">\n    <path fill=\"#1d1d1b\" fill-opacity=\"1\" d=\"M0,224L240,160L480,256L720,128L960,192L1200,96L1440,192L1440,0L1200,0L960,0L720,0L480,0L240,0L0,0Z\"></path>\n</svg>\n"; //video background section
 
@@ -401,7 +406,8 @@ var contactUsFAQvariables = [{
   answer: "We offer adventures for any skill level - from beginner to expert, we'll make sure you have a blast no matter what your skill level!"
 }]; // contact us section output to DOM
 
-var contactUsContainer = document.querySelector('.contactUsSection'); // info input side
+var contactUsContainer = document.querySelector('.contactUsSection');
+contactUsContainer.setAttribute('id', 'contactUs'); // info input side
 
 var contactUsInputDiv = document.createElement('div');
 contactUsInputDiv.classList.add('contactUsInputDiv'); // first name + last name
@@ -500,23 +506,62 @@ var _loop = function _loop(i) {
       answerDivs[i].style.display = 'none'; // animation
 
       QandAArrows[i].style.transform = 'rotate(0deg)';
+      QandAArrows[i].style.color = '#27b5bd';
       answerDivs[i].style.borderBottom = 'none';
       questionDivs[i].style.borderBottom = 'solid 1px #27b5bd';
-      answerElements[i].style.transform = 'translateX(-2em)';
     } else {
       answerDivs[i].style.display = 'block'; //animation
 
       QandAArrows[i].style.transform = 'rotate(180deg)';
-      answerDivs[i].style.borderBottom = 'solid 1px #27b5bd';
+      QandAArrows[i].style.color = '#cf2e2e';
+      answerDivs[i].style.borderBottom = 'solid 1px #cf2e2e';
       questionDivs[i].style.borderBottom = 'none';
-      answerElements[i].style.transform = 'translateX(0em)';
     }
   });
 };
 
 for (var i = 0; i < QandAArrows.length; i++) {
   _loop(i);
-}
+} // Footer --Section
+// footer variables
+
+
+var footerBackground = [{
+  backgroundURL: 'https://cdn.shopify.com/s/files/1/0655/0051/2490/files/pexels-tyler-lastovich-772803.jpg?v=1666684386'
+}];
+var footerContactInfo = [{
+  businessName: 'Whistler Adventures',
+  email: 'contact@whistleradventures.com',
+  address: '123 Whistler Way, Whistler, BC V0N 1B4'
+}];
+var footerMenuList = [{
+  itemText: 'Book Now',
+  itemURL: '/#bookNow'
+}, {
+  itemText: 'Services',
+  itemURL: '/#schedule'
+}, {
+  itemText: 'About Us',
+  itemURL: '/#aboutUs'
+}, {
+  itemText: 'Contact Us',
+  itemURL: '/#contactUs'
+}]; //footer output onto the DOM
+//background image 
+
+var footerContainer = document.querySelector('footer');
+footerContainer.style.background = "linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,95)), url('" + footerBackground[0].backgroundURL + "')";
+footerContainer.style.backgroundSize = 'cover';
+footerContainer.style.backgroundPosition = 'bottom'; // contact info container
+
+var footerContactContainer = document.createElement('div');
+footerContactContainer.classList.add('footerContactContainer');
+footerContainer.appendChild(footerContactContainer); //header
+
+var footerContactHeader = document.createElement('h3');
+footerContactHeader.classList.add('footerContactHeader');
+footerContactHeader.appendChild(document.createTextNode(footerContactInfo[0].businessName));
+footerContactContainer.appendChild(footerContactHeader); //contact info items
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -545,7 +590,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58938" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64275" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

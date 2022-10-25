@@ -1,9 +1,11 @@
+// Look for the id's for the scroll identifier using "--id"
+
 // header --Section
 // header variables
 const headerNavItems = [
     {
-        item: 'Adventures',
-        link: '/#adventures',
+        item: 'Book Now',
+        link: '/#bookNow',
         icon: 'https://cdn.shopify.com/s/files/1/0024/9551/2691/files/icons8-national-park-64.png?v=1665121376'
     },
     {
@@ -65,6 +67,7 @@ const heroSectonBackground = [
 
 // Hero section output to DOM
 const heroSectionDiv = document.querySelector('.heroSection');
+heroSectionDiv.setAttribute('id', 'bookNow');
 
 // background using Parallax
 const heroSectionBackgroundImgEl = document.createElement('img');
@@ -160,6 +163,7 @@ const imagesWithTextVariables = [
 
 // Images with text DOM output
 const imageWithTextSectionContainer = document.querySelector('.imagesAndTextSection');
+imageWithTextSectionContainer.setAttribute('id', 'schedule');
 
 imagesWithTextVariables.forEach(section => {
 
@@ -259,6 +263,7 @@ const videoWithTextOverlayButtonVariables = [
 ]
 
 const videoWithTextOverlayContainer = document.querySelector('.videoTextOverlaySection');
+videoWithTextOverlayContainer.setAttribute('id', 'aboutUs'); // --id
 
 //mountain svg divider
 videoWithTextOverlayContainer.innerHTML += `
@@ -351,6 +356,7 @@ const contactUsFAQvariables = [
 
 // contact us section output to DOM
 const contactUsContainer = document.querySelector('.contactUsSection');
+contactUsContainer.setAttribute('id', 'contactUs')
 
     // info input side
 const contactUsInputDiv = document.createElement('div');
@@ -463,16 +469,71 @@ for (let i = 0; i < QandAArrows.length; i++) {
             answerDivs[i].style.display = 'none';
             // animation
             QandAArrows[i].style.transform = 'rotate(0deg)';
+            QandAArrows[i].style.color = '#27b5bd';
             answerDivs[i].style.borderBottom = 'none';
             questionDivs[i].style.borderBottom = 'solid 1px #27b5bd';
-            answerElements[i].style.transform = 'translateX(-2em)';
         } else {
             answerDivs[i].style.display = 'block';
             //animation
             QandAArrows[i].style.transform = 'rotate(180deg)';
-            answerDivs[i].style.borderBottom = 'solid 1px #27b5bd';
+            QandAArrows[i].style.color = '#cf2e2e';
+            answerDivs[i].style.borderBottom = 'solid 1px #cf2e2e';
             questionDivs[i].style.borderBottom = 'none';
-            answerElements[i].style.transform = 'translateX(0em)';
         }
     });
 }
+
+
+// Footer --Section
+// footer variables
+const footerBackground = [
+    {
+        backgroundURL: 'https://cdn.shopify.com/s/files/1/0655/0051/2490/files/pexels-tyler-lastovich-772803.jpg?v=1666684386',
+    }
+]
+const footerContactInfo = [
+    {
+        businessName: 'Whistler Adventures',
+        email: 'contact@whistleradventures.com',
+        address: '123 Whistler Way, Whistler, BC V0N 1B4'
+    }
+]
+const footerMenuList = [
+    {
+        itemText: 'Book Now',
+        itemURL: '/#bookNow'
+    },
+    {
+        itemText: 'Services',
+        itemURL: '/#schedule'
+    },
+    {
+        itemText: 'About Us',
+        itemURL: '/#aboutUs'
+    },
+    {
+        itemText: 'Contact Us',
+        itemURL: '/#contactUs'
+    }
+];
+
+//footer output onto the DOM
+
+//background image 
+const footerContainer = document.querySelector('footer');
+footerContainer.style.background = "linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,95)), url('"+footerBackground[0].backgroundURL+"')";
+footerContainer.style.backgroundSize = 'cover';
+footerContainer.style.backgroundPosition = 'bottom';
+
+// contact info container
+const footerContactContainer = document.createElement('div');
+footerContactContainer.classList.add('footerContactContainer');
+footerContainer.appendChild(footerContactContainer);
+
+//header
+const footerContactHeader = document.createElement('h3');
+footerContactHeader.classList.add('footerContactHeader');
+footerContactHeader.appendChild(document.createTextNode(footerContactInfo[0].businessName));
+footerContactContainer.appendChild(footerContactHeader);
+
+//contact info items

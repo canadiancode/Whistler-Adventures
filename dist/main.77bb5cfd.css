@@ -13,6 +13,8 @@ html {
   --light-background-color: #fcf6eb;
   --dark-background-color: #1d1d1b;
   --accent-bg-color: #27b5bd;
+  --highlight-color-full: #cf2e2e;
+  --highlight-color-seethrough: #f9000059;
   --more-transparent-bg-color: rgba(39, 181, 189, 0.4);
   --less-transparent-bg-color: rgba(39, 181, 189, 0.9);
   --box-shadow: 0px 0px 15px -2px #27b5bd;
@@ -80,6 +82,7 @@ html {
   overflow-y: auto;
   overflow-x: hidden;
   perspective: 10px;
+  scroll-behavior: smooth;
 }
 
 /* Hero --Section */
@@ -143,7 +146,7 @@ html {
 .heroSection .heroSectionTextDiv .heroSectionMainTextEl {
   width: 100%;
   text-align: left;
-  color: var(--accent-text-color);
+  color: var(--highlight-color-full);
   text-shadow: 2px 2px 3px var(--light-text-color);
   margin: 0.2em auto;
   font-size: 5em;
@@ -172,8 +175,8 @@ html {
   transition: var(--transition-duration);
 }
 .heroSection .heroSectionTextDiv .heroSectionCTAlinkDiv .heroSectionCTAlink:hover {
-  background: var(--less-transparent-bg-color);
-  border: solid 2px var(--less-transparent-bg-color);
+  background: var(--highlight-color-full);
+  border: solid 2px var(--light-background-color);
 }
 @media screen and (max-width: 900px) {
   .heroSection .heroSectionTextDiv .heroSectionMainTextEl {
@@ -213,7 +216,7 @@ html {
     flex-direction: row-reverse;
   }
   .imagesAndTextSection .imagesWithTextDivEachItem:nth-child(even) .imagesWithTextTextDiv {
-    padding-left: 6em;
+    padding-left: 7em;
   }
   .imagesAndTextSection .imagesWithTextDivEachItem:nth-child(even) .imagesWithTextImgDiv {
     transform: translateX(-3em);
@@ -299,7 +302,7 @@ html {
   width: 150px;
   text-decoration: none;
   padding: 1em 2em;
-  background: var(--more-transparent-bg-color);
+  background: var(--highlight-color-seethrough);
   color: var(--light-text-color);
   font-weight: bolder;
   cursor: pointer;
@@ -308,8 +311,7 @@ html {
   transition: var(--transition-duration);
 }
 .imagesAndTextSection .imagesWithTextTextDiv .imageWithTextButtonDiv .imageWithTextButtonLink button:hover {
-  background: var(--less-transparent-bg-color);
-  border: solid 2px var(--less-transparent-bg-color);
+  background: var(--highlight-color-full);
 }
 .imagesAndTextSection .imagesWithTextTextDiv .imageWithTextTextBackgroundDiv {
   height: 100%;
@@ -460,7 +462,7 @@ html {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: var(--accent-bg-color);
+  background-color: var(--highlight-color-full);
 }
 .videoTextOverlaySection .videoWithTextOverlayTextDiv .videoWithTextOverlaySubTextEl {
   padding-bottom: 2.2em;
@@ -511,11 +513,14 @@ html {
   grid-template-columns: repeat(2, 1fr);
   margin: 0 auto;
   align-content: center;
+  align-items: center;
   width: 100%;
   height: auto;
   background-color: var(--dark-background-color);
-  padding: 3em 0em;
-  box-shadow: inset 0px 16px 14px -6px black;
+  padding: 8em 0em;
+  box-shadow: inset 0px 0px 40px 5px black;
+  transition-duration: var(--transition-duration);
+  position: relative;
 }
 @media screen and (max-width: 900px) {
   .contactUsSection {
@@ -535,10 +540,18 @@ html {
   display: grid;
   justify-items: center;
   align-content: center;
-  box-shadow: var(--box-shadow);
+  box-shadow: 1px 1px 10px 1px black;
   border-radius: var(--border-radius);
   padding: 1em;
   height: 100%;
+  transition-duration: var(--transition-duration);
+  max-width: 27em;
+  max-height: 30em;
+}
+@media screen and (max-width: 900px) {
+  .contactUsSection .contactUsInputDiv {
+    width: 90%;
+  }
 }
 .contactUsSection .contactUsInputDiv input {
   height: 25px;
@@ -553,12 +566,14 @@ html {
 }
 .contactUsSection .contactUsInputDiv .contactUsNameDiv input {
   width: 100%;
+  height: 2.2em;
 }
 .contactUsSection .contactUsInputDiv .contactUsEmailLabel {
   width: 100%;
 }
 .contactUsSection .contactUsInputDiv .contactUsEmailLabel input {
   width: 100%;
+  height: 2.4em;
 }
 .contactUsSection .contactUsInputDiv .contactUsMessageLabel {
   width: 100%;
@@ -594,6 +609,7 @@ html {
   width: 80%;
   height: 100%;
   margin: 0;
+  transition-duration: var(--transition-duration);
 }
 @media screen and (max-width: 900px) {
   .contactUsSection .contactUsFAQDiv {
@@ -662,8 +678,12 @@ html {
   transition-duration: var(--transition-duration);
 }
 .contactUsSection .contactUsFAQDiv .answerDiv .answerEl {
-  transform: translateX(-2em);
   transition-duration: var(--transition-duration);
+}
+
+footer {
+  width: 100%;
+  height: 25em;
 }
 
 /*# sourceMappingURL=/main.77bb5cfd.css.map */
