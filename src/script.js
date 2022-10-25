@@ -496,6 +496,9 @@ const footerContactInfo = [
         businessName: 'Whistler Adventures',
         email: 'contact@whistleradventures.com',
         address: '123 Whistler Way, Whistler, BC V0N 1B4'
+    },
+    {
+        addressLink: 'https://www.google.com/maps/place/Parking+Lot+2+(Totem+Icon)/@50.114891,-122.9548031,17z/data=!4m13!1m7!3m6!1s0x54873cb203957b87:0x4ab741e875f5cff6!2sWhistler,+BC!3b1!8m2!3d50.1161686!4d-122.9535117!3m4!1s0x5487234cd4f624ed:0x2152e30fb04f1418!8m2!3d50.1157799!4d-122.9525096'
     }
 ]
 const footerMenuList = [
@@ -537,3 +540,68 @@ footerContactHeader.appendChild(document.createTextNode(footerContactInfo[0].bus
 footerContactContainer.appendChild(footerContactHeader);
 
 //contact info items
+const footerEmailDiv = document.createElement('div');
+footerEmailDiv.classList.add('footerEmailDiv');
+footerContactContainer.appendChild(footerEmailDiv);
+
+const footerEmailLink = document.createElement('a');
+footerEmailLink.classList.add('footerEmailLink');
+const emailHref = 'mailto:'.concat(footerContactInfo[0].email);
+console.log(emailHref);
+footerEmailLink.href = emailHref;
+footerEmailDiv.appendChild(footerEmailLink);
+
+const footerEmailIcon = document.createElement('img');
+footerEmailIcon.src = 'https://cdn.shopify.com/s/files/1/0655/0051/2490/files/icons8-envelope-64.png?v=1666720187';
+footerEmailIcon.classList.add('footerEmailIcon');
+footerEmailLink.appendChild(footerEmailIcon);
+
+const footerEmailText = document.createElement('p');
+footerEmailText.classList.add('footerEmailText');
+footerEmailText.appendChild(document.createTextNode(footerContactInfo[0].email));
+footerEmailLink.appendChild(footerEmailText);
+
+//location 
+const footerLocationDiv = document.createElement('div');
+footerLocationDiv.classList.add('footerLocationDiv');
+footerContactContainer.appendChild(footerLocationDiv);
+
+const footerLocationLink = document.createElement('a');
+footerLocationLink.classList.add('footerEmailLink');
+footerLocationLink.href = footerContactInfo[1].addressLink;
+footerLocationDiv.appendChild(footerLocationLink);
+
+const footerLocationImg = document.createElement('img');
+footerLocationImg.classList.add('footerLocationImg');
+footerLocationImg.src = 'https://cdn.shopify.com/s/files/1/0655/0051/2490/files/icons8-home-address-64.png?v=1666720265';
+footerLocationLink.appendChild(footerLocationImg);
+
+const footerLocationAddress = document.createElement('p');
+footerLocationAddress.classList.add('footerLocationAddress');
+footerLocationAddress.appendChild(document.createTextNode(footerContactInfo[0].address));
+footerLocationLink.appendChild(footerLocationAddress);
+
+//menu items
+const footerMenuDiv = document.createElement('div');
+footerMenuDiv.classList.add('footerMenuDiv');
+footerContainer.appendChild(footerMenuDiv);
+
+const menuItemHeader = document.createElement('h3');
+menuItemHeader.classList.add('menuItemHeader');
+menuItemHeader.appendChild(document.createTextNode('Quick Links'));
+footerMenuDiv.appendChild(menuItemHeader);
+
+const footerMenuUL = document.createElement('ul');
+//menu items
+footerMenuList.forEach(item => {
+    const menuItem = document.createElement('li');
+    menuItem.classList.add('menuItemLink');
+
+    const menuItemLink = document.createElement('a');
+    menuItemLink.href = item.itemURL;
+    menuItemLink.appendChild(document.createTextNode(item.itemText));
+
+    menuItem.appendChild(menuItemLink);
+    footerMenuUL.appendChild(menuItem);
+    footerMenuDiv.appendChild(footerMenuUL);
+})

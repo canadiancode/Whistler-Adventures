@@ -663,5 +663,83 @@ html {
 footer {
     width: 100%;
     height: 25em;
-
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1em;
+    align-items: center;
+    align-content: center;
+    padding: 5em 10%;
+    .footerContactContainer {
+        margin: 0;
+        .footerEmailLink {
+            padding: 0em;
+            display: flex;
+            text-decoration: none;
+            transition-duration: var(--transition-duration);
+            align-items: center;
+            align-content: center;
+            &:hover p {
+                color: var(--accent-text-color);
+            }
+        }
+        img {
+            filter: invert(100%);
+            transform: scale(0.5);
+            margin: 0;
+            padding: 0;
+        }
+        p {
+            color: var(--light-text-color);
+            margin: 0;
+            padding: 0;
+            font-size: 1.2em;
+            transition-duration: var(--transition-duration);
+        }
+        .footerContactHeader {
+            color: var(--light-text-color);
+            font-size: 2.5em;
+            align-content: center;
+            align-items: center;
+        }
+        .footerEmailDiv {
+            display: flex;
+            justify-content: flex-start;
+            align-content: center;
+            align-items: center;
+            max-width: 20em;
+            padding: 0;
+            margin: 0;
+        }
+        .footerLocationDiv {
+            display: flex;
+            justify-content: flex-start;
+            align-content: center;
+            align-items: center;
+            max-width: 18em;
+            padding: 0;
+            margin: 0;
+        }
+    }
+    .footerMenuDiv {
+        margin: 0 auto;
+        .menuItemHeader {
+            font-size: 2.5em;
+            color: var(--light-text-color);
+        }
+        ul {
+            text-decoration: none;
+            li {
+                margin-top: 0.5em;
+                a {
+                    text-decoration: none;
+                    color: var(--light-text-color);
+                    font-size: 1.2em;
+                    transition-duration: var(--transition-duration);
+                    &:hover {
+                        color: var(--accent-text-color);
+                    }
+                }
+            }
+        }
+    }
 }
