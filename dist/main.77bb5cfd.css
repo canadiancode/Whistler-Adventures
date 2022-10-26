@@ -855,6 +855,10 @@ footer .footerSocialDiv .linkDiv .linkHref {
 }
 footer .footerSocialDiv .linkDiv .linkHref img {
   filter: invert(100%);
+  transition-duration: var(--transition-duration);
+}
+footer .footerSocialDiv .linkDiv .linkHref img:hover {
+  filter: invert(19%) sepia(96%) saturate(2622%) hue-rotate(350deg) brightness(96%) contrast(80%);
 }
 footer .footerSocialDiv:before {
   content: "";
