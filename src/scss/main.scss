@@ -523,7 +523,6 @@ html {
         height: 100%;
         transition-duration: var(--transition-duration);
         max-width: 27em;
-        max-height: 30em;
         @media screen and (max-width: 900px) {
             & {
                 width: 90%;
