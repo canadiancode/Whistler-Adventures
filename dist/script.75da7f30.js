@@ -548,6 +548,23 @@ var footerMenuList = [{
 }, {
   itemText: 'Contact Us',
   itemURL: '/#contactUs'
+}];
+var footerSocialLinks = [{
+  //Facebook 
+  icon: 'https://cdn.shopify.com/s/files/1/0655/0051/2490/files/icons8-facebook-64_2.png?v=1666769406',
+  link: 'https://www.facebook.com/'
+}, {
+  //Instagram 
+  icon: 'https://cdn.shopify.com/s/files/1/0655/0051/2490/files/icons8-instagram-64.png?v=1666769377',
+  link: 'https://www.instagram.com/'
+}, {
+  // TripAdvisor 
+  icon: 'https://cdn.shopify.com/s/files/1/0655/0051/2490/files/tripadvisor.png?v=1666769508',
+  link: 'https://www.tripadvisor.ca/'
+}, {
+  // Yelp
+  icon: 'https://cdn.shopify.com/s/files/1/0655/0051/2490/files/yelp.png?v=1666769570',
+  link: 'https://www.yelp.ca/'
 }]; //footer output onto the DOM
 //background image 
 
@@ -571,7 +588,6 @@ footerContactContainer.appendChild(footerEmailDiv);
 var footerEmailLink = document.createElement('a');
 footerEmailLink.classList.add('footerEmailLink');
 var emailHref = 'mailto:'.concat(footerContactInfo[0].email);
-console.log(emailHref);
 footerEmailLink.href = emailHref;
 footerEmailDiv.appendChild(footerEmailLink);
 var footerEmailIcon = document.createElement('img');
@@ -617,6 +633,23 @@ footerMenuList.forEach(function (item) {
   menuItem.appendChild(menuItemLink);
   footerMenuUL.appendChild(menuItem);
   footerMenuDiv.appendChild(footerMenuUL);
+}); // social icons
+
+var footerSocialDiv = document.createElement('div');
+footerSocialDiv.classList.add('footerSocialDiv');
+footerContainer.appendChild(footerSocialDiv);
+footerSocialLinks.forEach(function (link) {
+  var linkDiv = document.createElement('div');
+  linkDiv.classList.add('linkDiv');
+  var linkHref = document.createElement('a');
+  linkHref.classList.add('linkHref');
+  linkHref.href = link.link;
+  var linkIcon = document.createElement('img');
+  linkIcon.classList.add('linkIcon');
+  linkIcon.src = link.icon;
+  linkHref.appendChild(linkIcon);
+  linkDiv.appendChild(linkHref);
+  footerSocialDiv.appendChild(linkDiv);
 });
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -646,7 +679,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52884" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63613" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

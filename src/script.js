@@ -519,6 +519,28 @@ const footerMenuList = [
         itemURL: '/#contactUs'
     }
 ];
+const footerSocialLinks = [
+    {
+        //Facebook 
+        icon: 'https://cdn.shopify.com/s/files/1/0655/0051/2490/files/icons8-facebook-64_2.png?v=1666769406',
+        link: 'https://www.facebook.com/'
+    },
+    {
+        //Instagram 
+        icon: 'https://cdn.shopify.com/s/files/1/0655/0051/2490/files/icons8-instagram-64.png?v=1666769377',
+        link: 'https://www.instagram.com/'
+    },
+    {
+        // TripAdvisor 
+        icon: 'https://cdn.shopify.com/s/files/1/0655/0051/2490/files/tripadvisor.png?v=1666769508',
+        link: 'https://www.tripadvisor.ca/'
+    },
+    {
+        // Yelp
+        icon: 'https://cdn.shopify.com/s/files/1/0655/0051/2490/files/yelp.png?v=1666769570',
+        link: 'https://www.yelp.ca/'
+    },
+]
 
 //footer output onto the DOM
 
@@ -547,7 +569,6 @@ footerContactContainer.appendChild(footerEmailDiv);
 const footerEmailLink = document.createElement('a');
 footerEmailLink.classList.add('footerEmailLink');
 const emailHref = 'mailto:'.concat(footerContactInfo[0].email);
-console.log(emailHref);
 footerEmailLink.href = emailHref;
 footerEmailDiv.appendChild(footerEmailLink);
 
@@ -605,3 +626,27 @@ footerMenuList.forEach(item => {
     footerMenuUL.appendChild(menuItem);
     footerMenuDiv.appendChild(footerMenuUL);
 })
+
+// social icons
+const footerSocialDiv = document.createElement('div');
+footerSocialDiv.classList.add('footerSocialDiv');
+footerContainer.appendChild(footerSocialDiv);
+
+footerSocialLinks.forEach(link => {
+    const linkDiv = document.createElement('div');
+    linkDiv.classList.add('linkDiv');
+
+    const linkHref = document.createElement('a');
+    linkHref.classList.add('linkHref');
+    linkHref.href = link.link;
+
+    const linkIcon = document.createElement('img');
+    linkIcon.classList.add('linkIcon');
+    linkIcon.src = link.icon;
+
+    linkHref.appendChild(linkIcon);
+    linkDiv.appendChild(linkHref);
+    footerSocialDiv.appendChild(linkDiv);
+    
+
+});
