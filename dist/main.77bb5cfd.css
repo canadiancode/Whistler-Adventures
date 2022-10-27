@@ -604,6 +604,22 @@ html {
   background: var(--less-transparent-bg-color);
   border: solid 2px var(--less-transparent-bg-color);
 }
+.contactUsSection .thankYouDiv {
+  width: 100%;
+  text-align: center;
+}
+.contactUsSection .thankYouDiv h3 {
+  color: var(--light-text-color);
+  font-size: 2.5em;
+  padding: 2em 1em;
+  margin-top: -1em;
+  text-shadow: 2px 2px 4px var(--accent-text-color);
+  max-width: 12em;
+}
+.contactUsSection .thankYouDiv p {
+  color: var(--light-text-color);
+  font-size: 1.2em;
+}
 .contactUsSection .contactUsFAQDiv {
   width: 80%;
   height: 100%;

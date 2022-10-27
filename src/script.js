@@ -484,6 +484,34 @@ for (let i = 0; i < QandAArrows.length; i++) {
 }
 
 
+// code for the email submission
+contactUsButton.addEventListener('click', function() {
+    
+    if (contactUSFirstName.value != "" && contactUsLastName.value != "" && contactUsEmail.value != "" && contactUsMessage.value != "") {
+
+        contactUsInputDiv.textContent = '';
+        const thankYouDiv = document.createElement('div');
+        thankYouDiv.classList.add('thankYouDiv');
+        contactUsInputDiv.appendChild(thankYouDiv);
+
+        const thankYouMessageHeader = document.createElement('h3');
+        thankYouMessageHeader.classList.add('thankYouMessage');
+        thankYouMessageHeader.appendChild(document.createTextNode('Thank you for reaching out!'))
+        thankYouDiv.appendChild(thankYouMessageHeader);
+
+        const thankYouMessage = document.createElement('p');
+        thankYouMessage.classList.add('thankYouMessage');
+        thankYouMessage.appendChild(document.createTextNode('We will get back to you as soon as we can!'));
+        thankYouDiv.appendChild(thankYouMessage);
+
+    } else {
+        alert("Please complete the form before submitting the message. Thank you!");
+    }
+
+})
+
+
+
 // Footer --Section
 // footer variables
 const footerBackground = [

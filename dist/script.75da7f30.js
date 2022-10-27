@@ -522,9 +522,28 @@ var _loop = function _loop(i) {
 
 for (var i = 0; i < QandAArrows.length; i++) {
   _loop(i);
-} // Footer --Section
-// footer variables
+} // code for the email submission
 
+
+contactUsButton.addEventListener('click', function () {
+  if (contactUSFirstName.value != "" && contactUsLastName.value != "" && contactUsEmail.value != "" && contactUsMessage.value != "") {
+    contactUsInputDiv.textContent = '';
+    var thankYouDiv = document.createElement('div');
+    thankYouDiv.classList.add('thankYouDiv');
+    contactUsInputDiv.appendChild(thankYouDiv);
+    var thankYouMessageHeader = document.createElement('h3');
+    thankYouMessageHeader.classList.add('thankYouMessage');
+    thankYouMessageHeader.appendChild(document.createTextNode('Thank you for reaching out!'));
+    thankYouDiv.appendChild(thankYouMessageHeader);
+    var thankYouMessage = document.createElement('p');
+    thankYouMessage.classList.add('thankYouMessage');
+    thankYouMessage.appendChild(document.createTextNode('We will get back to you as soon as we can!'));
+    thankYouDiv.appendChild(thankYouMessage);
+  } else {
+    alert("Please complete the form before submitting the message. Thank you!");
+  }
+}); // Footer --Section
+// footer variables
 
 var footerBackground = [{
   backgroundURL: 'https://cdn.shopify.com/s/files/1/0655/0051/2490/files/pexels-tyler-lastovich-772803.jpg?v=1666684386'
@@ -679,7 +698,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63613" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62775" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
