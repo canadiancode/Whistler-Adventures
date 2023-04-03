@@ -1,6 +1,2 @@
-Going to re-create the Whistler Adventures website:
-https://whistleradventures.ca/
-
-Color pallete:
-https://colorpalettes.earth/p/95cff578fd
-
+Check out website using the link below:
+https://canadiancode.github.io/Andrew-Hartley-Realty/
